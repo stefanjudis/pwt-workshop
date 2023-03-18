@@ -19,6 +19,8 @@ Check all available test options via `npx playwright test --help`.
 
 > **Note**
 > To only run a single test from the command line, [leverage `test.only`](https://playwright.dev/docs/api/class-test#test-only).
+
+TODO pros / cons of each approach
 ### Debugging in VS Code
 
 ![Debugging session in VS Code](../../../assets/01-03-debugging-in-vs-code.png)

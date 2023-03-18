@@ -75,7 +75,7 @@ await page.getByLabel('User Name').fill('John Doe');
 ```
 
 > **Note**
-> Debug all the taken actionability steps with the Actionability log included in `npx playwright test --debug`.
+> Debug all the taken actionability steps with the "Actionability Log" included in `npx playwright test --debug`.
 
 ![Actionability log](../../../assets/02-01-actionability-log.png)
 

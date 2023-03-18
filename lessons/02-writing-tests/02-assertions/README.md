@@ -28,9 +28,11 @@ test('has title', async ({ page }) => {
 });
 ```
 
-### How to adjust timeouts
+### Assertion essentials
 
-Async matchers have a timeout config option.
+#### Configurable timeouts
+
+Async assertions have a timeout config option if things take longer.
 
 ```javascript
 await expect(page.getByText('welcome')).toBeVisible({timeout: 10_000})
@@ -39,12 +41,11 @@ await expect(page.getByText('welcome')).toBeVisible({timeout: 10_000})
 > **Note**
 > The default timeout is 5s and can be changed in your Playwright config under `expect.timeout`.
 
-### Tweak assertions
+#### Soft assertions
 
-Soft assertions (`expect.soft`) are a handy way to fail your test case but don't stop it.
+[Soft assertions (`expect.soft`)](https://playwright.dev/docs/test-assertions#soft-assertions) are a handy way to fail your test case but don't stop it.
 
 ```javascript
-
 test('has title', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
@@ -55,7 +56,17 @@ test('has title', async ({ page }) => {
   // ...
 })
 ```
+![Soft assertion example in the HTML report](../../../assets/02-02-soft-assertions.png)
 
+#### Custom assertion messages
+
+To make your assertions more readable you can also define a custom message.
+
+```javascript
+await expect.soft(page, 'should have an awesome title').toHaveTitle('wrong title');
+```
+
+![Custom assertion message](../../../assets/02-02-assertion-message.png)
 
 ## Auto-waiting is the most important core principle in PWT
 
