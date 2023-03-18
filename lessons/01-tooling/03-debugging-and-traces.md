@@ -6,7 +6,7 @@
 To debug and develop your tests solid debugging tools are essential. Leverage the command line or the VS Code extension to debug with ease.
 ### Debugging via the command line
 
-![Debugging session in VS Code](../../../assets/01-03-debugging-via-the-terminal.png)
+![Debugging session in VS Code](../../assets/01-03-debugging-via-the-terminal.png)
 
 Spin up the Playwright debugger with the `--debug` flag.
 
@@ -23,14 +23,14 @@ Check all available test options via `npx playwright test --help`.
 TODO pros / cons of each approach
 ### Debugging in VS Code
 
-![Debugging session in VS Code](../../../assets/01-03-debugging-in-vs-code.png)
+![Debugging session in VS Code](../../assets/01-03-debugging-in-vs-code.png)
 
 Run particular tests from within VS Code. It's more powerful than the terminal because it allows you to inspect variables and scope.
 ## Debug remote tests running in CI/CD with traces
 
 But what about test runs that failed in a remote environment? PWT provides debug traces for this case.
 
-![Debugging a trace](../../../assets/01-03-traces.png)
+![Debugging a trace](../../assets/01-03-traces.png)
 
 Change your `playwright.config.[ts|js]` to always collect traces.
 

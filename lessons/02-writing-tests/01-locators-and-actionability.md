@@ -77,7 +77,7 @@ await page.getByLabel('User Name').fill('John Doe');
 > **Note**
 > Debug all the taken actionability steps with the "Actionability Log" included in `npx playwright test --debug`.
 
-![Actionability log](../../../assets/02-01-actionability-log.png)
+![Actionability log](../../assets/02-01-actionability-log.png)
 
 🌟 These auto-waiting concepts allow you to drop many manual `waitFor` statements and make your tests more resilient.
 

@@ -9,7 +9,7 @@ $ npx playwright codegen https://danube-web.shop/
 
 Click around and see how your PWT script develops automatically.
 
-![Record tests via codegen](../../../assets/01-02-recording-with-codegen.png)
+![Record tests via codegen](../../assets/01-02-recording-with-codegen.png)
 
 ## Record tests via the Playwright VS Code extension
 
@@ -17,7 +17,7 @@ Most of the CLI functionality is also available via [the official VS Code extens
 
 Run and record your tests from within VS Code.
 
-![Record tests in VS Code](../../../assets/01-02-recording-vs-code.png)
+![Record tests in VS Code](../../assets/01-02-recording-vs-code.png)
 
 ## Result
 
