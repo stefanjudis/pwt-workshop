@@ -70,7 +70,7 @@ await page.getByText('Login').click();
 // Fill will auto-wait for element to be actionable
 await page.getByLabel('User Name').fill('John Doe');
 ```
-> **Info**
+> **Note**
 > These concepts allow you to drop many manual `waitFor` statements and make your tests more resilient.
 
 ## Example with the good old Danube shop
