@@ -1,5 +1,6 @@
 # Record your first PWT test
 
+To give you a headstart PWT provides "test recording" functionality.
 ## Record tests via the `playwright` command
 
 ```bash
@@ -35,3 +36,7 @@ test('test', async ({ page }) => {
 
 > **Note**
 > `codegen` can only record PWT actions. It's an invaluable tool to get started but to make your tests valuable you have to add assertions manually. **Playwright can't know what you want to test.**
+
+-----
+
+But how do you debug tests in a headless world? [Let's look at debugging and tracing](../03-debugging-and-traces/README.md).

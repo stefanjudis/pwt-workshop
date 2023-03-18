@@ -1,4 +1,4 @@
-# Getting started with `@playwright/test` (`PWT`)
+# Get started with `@playwright/test` (`PWT`)
 
 Playwright started as an automation library used for web scraping and browser automation. But it quickly evolved to a full test runner and framework that's built to scale.
 
@@ -22,7 +22,11 @@ To open last HTML report run:
 
   npx playwright show-report
 ```
-Congratulations! You just ran your first PWT tests.
+Congratulations! You just ran your first PWT tests. But you didn't see any browsers popping up. Use the `--headed` flag to see your automation in action.
+
+```
+$ npx playwright test --headed
+```
 
 > **Note**
 > By default Playwright test runs in full fledged parallel mode and kicks off multiple parallel processes to run your tests. This functionality can be tweaked via the `workers` and `fullyParallel` in the `playwright.config.[js|ts]`, on a test level or via the command line.
