@@ -13,5 +13,5 @@ This example repository includes lessen covering most of Playwright's core funct
 
 - `30min` — Playwright Intro presentation
 - `30min` — Playwright tooling
-- `30min` — Playwright's important concepts (actionability and web-first assertions)
-- `rest` — Hands-on Playwright exercises
+- `60min` — Playwright's important concepts (actionability and web-first assertions)
+- `The rest` — Write your tests!!!

@@ -27,7 +27,7 @@ If these don't fit your need, [check other locators](https://playwright.dev/docs
 
 A locator throws an exception if it matches multiple DOM elements.
 
-> **Info**
+> **Note**
 > [Find more info in strictness in this YouTube video](https://www.youtube.com/watch?v=SMFuzmxxy8o&list=PLMZDRUOi3a8NtMq3PUS5iJc2pee38rurc).
 
 #### Locators are lazy
@@ -49,3 +49,30 @@ const button = product.getByRole('button', { name: 'Add to cart' });
 
 ## Actionability
 
+[Playwright provides action methods for all common user interactions](https://playwright.dev/docs/input). But the most important concept when it comes to PWT is that actions auto-wait.
+
+`await locator.click()` waits until:
+
+- element is attached to the DOM
+- element is visible
+- element is stable, as in not animating
+- element is able to receive events (not obscured by other elements)
+- element is enabled (no `disabled attribute)
+
+Additionally, when an action is performed it'll wait until possible navigations are completed.
+
+```javascript
+// Concept 1:
+// Click will auto-wait for a triggered navigation to complete
+await page.getByText('Login').click();
+
+// Concept 2:
+// Fill will auto-wait for element to be actionable
+await page.getByLabel('User Name').fill('John Doe');
+```
+> **Info**
+> These concepts allow you to drop many manual `waitFor` statements and make your tests more resilient.
+
+## Example with the good old Danube shop
+
+TODO
