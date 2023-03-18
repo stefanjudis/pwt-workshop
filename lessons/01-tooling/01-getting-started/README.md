@@ -22,6 +22,8 @@ To open last HTML report run:
 
   npx playwright show-report
 ```
+> **Note**
+> By default Playwright test runs in full fledged parallel mode and kicks off multiple parallel processes to run your tests. This functionality can be tweaked via the `workers` and `fullyParallel` in the `playwright.config.[js|ts]`, on a test level or via the command line.
 
 ## `playwright.config.[ts|js]` — all these options! 🤯
 
