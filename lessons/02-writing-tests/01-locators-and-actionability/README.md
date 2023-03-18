@@ -21,22 +21,28 @@ The Playwright team highly encourages the usage of "user-first" locators to be a
 
 If these don't fit your need, [check other locators](https://playwright.dev/docs/other-locators).
 
-### Two important locator characteristics
+### Important locator characteristics
 
-**Locators are strict** — a locator throws an exception if it matches multiple DOM elements.
+#### Locators are strict
+
+A locator throws an exception if it matches multiple DOM elements.
 
 > **Info**
 > [Find more info in strictness in this YouTube video](https://www.youtube.com/watch?v=SMFuzmxxy8o&list=PLMZDRUOi3a8NtMq3PUS5iJc2pee38rurc).
 
-**Locators are lazy** — every time a locator is used for an action, an up-to-date DOM element is located on the page.
+#### Locators are lazy
+
+Every time a locator is used for an action, an up-to-date DOM element is located on the page.
 
 > **Warning**
 > Many people `await` locators. That's unnecessary because they're only holding a locator definition until they're used.
 
-**Locators can be chained** — to narrow down your selection you can always filter and chain locators.
+#### Locators can be chained
 
-```
-// Two different locators
+To narrow down your selection you can always filter and chain locators.
+
+```javascript
+// The `button` locator reuses the `product` locator
 const product = page.getByRole('listitem').filter({ hasText: 'Product 2' });
 const button = product.getByRole('button', { name: 'Add to cart' });
 ```

@@ -15,10 +15,10 @@ $ npx playwright test --debug
 $ npx playwright test tests/example.spec.js --debug
 ```
 
-> **Note**
-> Check all available test options via `npx playwright test --help`.
+Check all available test options via `npx playwright test --help`.
 
-Tip: to only run a single test from the command line, [leverage `test.only`](https://playwright.dev/docs/api/class-test#test-only).
+> **Note**
+> To only run a single test from the command line, [leverage `test.only`](https://playwright.dev/docs/api/class-test#test-only).
 ### Debugging in VS Code
 
 ![Debugging session in VS Code](../../../assets/01-03-debugging-in-vs-code.png)
