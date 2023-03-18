@@ -6,7 +6,9 @@
 $ npx playwright codegen https://danube-web.shop/
 ```
 
-Click around and have fun. An example result could look as follows:
+Click around and see how your PWT script develops automatically.
+
+![Record tests via codegen](../../../assets/01-02-recording-with-codegen.png)
 
 ## Record tests via the Playwright VS Code extension
 
@@ -30,3 +32,6 @@ test('test', async ({ page }) => {
   await page.locator('a').filter({ hasText: 'Fantasy' }).click();
 });
 ```
+
+> **Note**
+> `codegen` can only record PWT actions. It's an invaluable tool to get started but to make your tests valuable you have to add assertions manually. **Playwright can't know what you want to test.**
