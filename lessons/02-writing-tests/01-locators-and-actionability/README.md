@@ -65,15 +65,21 @@ Additionally, when an action is performed it'll wait until a possible navigation
 
 ```javascript
 // Concept 1:
-// Click will auto-wait for a triggered navigation to complete
+// Click will for the element to be actionable
+// Click will also auto-wait for a triggered navigation to complete
 await page.getByText('Login').click();
 
 // Concept 2:
 // Fill will auto-wait for element to be actionable
 await page.getByLabel('User Name').fill('John Doe');
 ```
+
 > **Note**
-> These concepts allow you to drop many manual `waitFor` statements and make your tests more resilient.
+> Debug all the taken actionability steps with the Actionability log included in `npx playwright test --debug`.
+
+![Actionability log](../../../assets/02-01-actionability-log.png)
+
+🌟 These auto-waiting concepts allow you to drop many manual `waitFor` statements and make your tests more resilient.
 
 ## 💪 Example with the good old Danube shop
 

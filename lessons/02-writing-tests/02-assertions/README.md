@@ -41,7 +41,7 @@ await expect(page.getByText('welcome')).toBeVisible({timeout: 10_000})
 
 ### Tweak assertions
 
-Soft assertions are a handy way to fail your test case but don't stop it.
+Soft assertions (`expect.soft`) are a handy way to fail your test case but don't stop it.
 
 ```javascript
 
@@ -51,10 +51,11 @@ test('has title', async ({ page }) => {
   // If this assertion fails the test case will be marked as failed
   await expect.soft(page.getByTestId('status')).toHaveText('Success');
 
-  // But all the following actions will still be executed
+  // But all the following actions will still be executed and tested
   // ...
 })
 ```
+
 
 ## Auto-waiting is the most important core principle in PWT
 
