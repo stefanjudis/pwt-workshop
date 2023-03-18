@@ -49,7 +49,9 @@ const button = product.getByRole('button', { name: 'Add to cart' });
 
 ## Actionability
 
-[Playwright provides action methods for all common user interactions](https://playwright.dev/docs/input). But the most important concept when it comes to PWT is that actions auto-wait.
+[Playwright provides action methods for all common user interactions](https://playwright.dev/docs/input).
+
+But the most important concept when it comes to PWT is that actions [auto-wait](https://playwright.dev/docs/actionability).
 
 `await locator.click()` waits until:
 
@@ -59,7 +61,7 @@ const button = product.getByRole('button', { name: 'Add to cart' });
 - element is able to receive events (not obscured by other elements)
 - element is enabled (no `disabled attribute)
 
-Additionally, when an action is performed it'll wait until possible navigations are completed.
+Additionally, when an action is performed it'll wait until a possible navigation is completed.
 
 ```javascript
 // Concept 1:
