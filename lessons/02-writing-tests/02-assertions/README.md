@@ -10,9 +10,9 @@ The auto-waiting concept also applies when you start adding assertions to your t
 Web-first assertions wait and retry until the condition is met or the time out is reached.
 
 ```javascript
-//
 await expect(page.getByText('welcome')).toBeVisible();
 ```
+In general, web-first assertions are more convenient to write and leverage PWT's core functionality.
 
 ```javascript
 import { test, expect } from '@playwright/test';
@@ -20,11 +20,11 @@ import { test, expect } from '@playwright/test';
 test('has title', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
-	// 👎
-	expect(await page.getByText('welcome').isVisible()).toBe(true);
+  // 👎
+  expect(await page.getByText('welcome').isVisible()).toBe(true);
 
-	// 👍
-	await expect(page.getByText('welcome')).toBeVisible();
+  // 👍
+  await expect(page.getByText('welcome')).toBeVisible();
 });
 ```
 
@@ -38,6 +38,23 @@ await expect(page.getByText('welcome')).toBeVisible({timeout: 10_000})
 
 > **Note**
 > The default timeout is 5s and can be changed in your Playwright config under `expect.timeout`.
+
+### Tweak assertions
+
+Soft assertions are a handy way to fail your test case but don't stop it.
+
+```javascript
+
+test('has title', async ({ page }) => {
+  await page.goto('https://playwright.dev/');
+
+  // If this assertion fails the test case will be marked as failed
+  await expect.soft(page.getByTestId('status')).toHaveText('Success');
+
+  // But all the following actions will still be executed
+  // ...
+})
+```
 
 ## Auto-waiting is the most important core principle in PWT
 
@@ -55,4 +72,3 @@ await expect(anotherLocator).toBeVisible();
 ## Example with the good old Danube shop
 
 
-await expect.soft(page.getByTestId('status')).toHaveText('Success');
