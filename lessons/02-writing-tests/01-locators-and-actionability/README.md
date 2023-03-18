@@ -23,21 +23,21 @@ If these don't fit your need, [check other locators](https://playwright.dev/docs
 
 ### Important locator characteristics
 
-#### Locators are strict
+#### 🌟 Locators are strict
 
 A locator throws an exception if it matches multiple DOM elements.
 
 > **Note**
 > [Find more info in strictness in this YouTube video](https://www.youtube.com/watch?v=SMFuzmxxy8o&list=PLMZDRUOi3a8NtMq3PUS5iJc2pee38rurc).
 
-#### Locators are lazy
+#### 🌟 Locators are lazy
 
 Every time a locator is used for an action, an up-to-date DOM element is located on the page.
 
 > **Warning**
 > Many people `await` locators. That's unnecessary because they're only holding a locator definition until they're used.
 
-#### Locators can be chained
+#### 🌟 Locators can be chained
 
 To narrow down your selection you can always filter and chain locators.
 
@@ -75,6 +75,6 @@ await page.getByLabel('User Name').fill('John Doe');
 > **Note**
 > These concepts allow you to drop many manual `waitFor` statements and make your tests more resilient.
 
-## Example with the good old Danube shop
+## 💪 Example with the good old Danube shop
 
 TODO
