@@ -45,6 +45,16 @@ await page.getByRole('link').click();
 
 Every time a locator is used for an action, an up-to-date DOM element is located on the page.
 
+```javascript
+// the `locator` is only evaluated when it's used
+const locator = page.getByRole('button', { name: 'Sign in' })
+
+// evaluate the locator
+await locator.hover();
+// evaluate the locator
+await locator.click();
+```
+
 > **Warning**
 > Many people `await` locators. That's unnecessary because they're only holding a locator definition until they're used.
 
@@ -57,6 +67,8 @@ To narrow down your selection you can always filter and chain locators.
 const product = page.getByRole('listitem').filter({ hasText: 'Product 2' });
 const button = product.getByRole('button', { name: 'Add to cart' });
 ```
+
+------
 
 ## Actionability
 
