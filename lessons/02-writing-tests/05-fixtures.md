@@ -1,6 +1,6 @@
 # Restructure and tidy up your code with custom fixtures
 
-If you finished the previous exercide you should have a login step in a test case's `beforeEach` hook. But here's a question, how can you reuse this login step for tests living in other test files?
+If you finished the previous exercise, you should have a login step in a test case's `beforeEach` hook. But here's a question, how can you reuse this login step for tests living in other test files?
 
 ```javascript
 test.describe("Danube", () => {
@@ -123,7 +123,7 @@ test.describe("A light and dark mode page", () => {
 });
 ```
 
-And you made it! You now have a `my-setup` file that is able to hold all your custom logic.
+And you made it! You now have a `my-setup` file that can be reused across tests and is able to hold all your custom logic.
 
 ## 🏗️ Action time with the good old Danube shop (or your own site)
 

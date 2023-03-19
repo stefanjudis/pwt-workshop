@@ -2,6 +2,7 @@
 
 Playwright started as an automation library used for web scraping and browser automation similar to Puppeteer. But it quickly evolved to a full test runner and framework that's built to scale.
 
+![Playwright homepage](../../assets/pwt-homepage.png)
 ## Install Playwright Test
 
 The best way to get started is the default `init` command.

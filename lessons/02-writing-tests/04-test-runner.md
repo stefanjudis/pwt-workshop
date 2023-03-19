@@ -60,7 +60,7 @@ test.describe("playwright", () => {
 
 > **Note** Even though you might be used to `beforeEach` and `afterEach`, custom fixtures are a handy alternative to structure tests and provide similar functionality across files. More on that later....
 
-## Individual test configurtion
+## Individual test configuration
 
 When Playwright runs all your tests there are multiple ways to configure single test runs.
 
