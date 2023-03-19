@@ -82,5 +82,9 @@ Familialize yourself with all these options to get the most of your screenshots!
 
 ## 🏗️ Example with the good old Danube shop (or your own site)
 
-
 **Tasks**:
+
+[ ] Take full page and element screenshots
+[ ] Mask DOM elements in your screenshots
+[ ] Implement visual snapshot testing in one test case
+
