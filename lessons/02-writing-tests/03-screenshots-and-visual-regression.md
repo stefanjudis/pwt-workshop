@@ -71,7 +71,7 @@ test.only("get started link", async ({ page, browserName }) => {
 
 ## Screenshot configuration
 
-[`screenshot(https://playwright.dev/docs/api/class-page#page-screenshot)`]() and [`toHaveScreenshot()`](https://playwright.dev/docs/api/class-pageassertions#page-assertions-to-have-screenshot-1) provide multiple configuration options:
+[`screenshot`](https://playwright.dev/docs/api/class-page#page-screenshot) and [`toHaveScreenshot()`](https://playwright.dev/docs/api/class-pageassertions#page-assertions-to-have-screenshot-1) provide multiple configuration options:
 
 - `mask`
 - `maxDiffRatio`
@@ -86,5 +86,5 @@ Familialize yourself with all these options to get the most of your screenshots!
 
 - [ ] Take full page and element screenshots
 - [ ] Mask DOM elements in your screenshots
-- [ ] Implement visual snapshot testing in one test case
+- [ ] Implement visual snapshot testing in a test case
 

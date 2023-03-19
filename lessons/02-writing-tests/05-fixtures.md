@@ -130,3 +130,5 @@ And you made it! You now have a `my-setup` file that is able to hold all your cu
 **Tasks**
 
 - [ ] Restructure your existing tests to implement a `loggedInPage` fixture that is automatically logged in and logs itself out after it was used in a test.
+
+> **Note** If you want to share login state across test runs, [check the Playwright docs](https://playwright.dev/docs/auth).
