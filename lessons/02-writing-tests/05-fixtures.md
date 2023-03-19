@@ -47,6 +47,7 @@ test("has title", async ({ page, browserName }) => {
 When I comes to Playwright Test there are always multiple ways to do things, but let's assume you want to provide a page object that emulates dark mode. How could you do this with a fixture that's available in all your tests.
 
 ```javascript
+// example.spec.ts
 import { test as base, expect, Page } from "@playwright/test";
 
 type MyFixtures = {
@@ -56,14 +57,15 @@ type MyFixtures = {
 // 1. extend the provided `test` method
 const test = base.extend({
   darkPage: async ({ browser }, use) => {
+    // this is before the fixture is used (similar to `beforeEach`)
     console.log("before custom fixture");
-    // this is `beforeEach`
+    // the provided object will be accessed from a test case
     use(
       await browser.newPage({
         colorScheme: "dark",
       })
     );
-    // this is `afterEach`
+    // this is after the fixture was used (similar to `afterEach`)
     console.log("after custom fixture");
   },
 });
@@ -78,4 +80,50 @@ test.describe("A light and dark mode page", () => {
 });
 ```
 
-> **Note** dark color scheme emulation is configurable in multiple place. I only took it as an understandable example.
+> **Note** Dark color scheme emulation is configurable in multiple place (project and test configuration). I only took it as an example.
+
+But now your fixture still lives in the same file as your test. It's time to restructure things.
+
+```
+tests
+  |_ my-setup.ts
+  |_ example.spec.ts
+```
+
+Create a new `my-setup.ts` file and export your extended `test` object and also `expect`.
+
+```typescript
+import { test as base, Page } from "@playwright/test";
+
+type MyFixtures = {
+  darkPage: Page;
+};
+
+export const test = base.extend({
+  darkPage: async ({ browser }, use) => {
+    // your fixture logic
+  },
+});
+
+export { expect } from "@playwright/test";
+```
+
+And import `test` and `expect` from your spec files.
+
+```javascript
+import { test, expect } from './my-setup'
+
+// all your test logic
+test.describe("A light and dark mode page", () => {
+  // `darkPage` is now available here
+  test("has title", async ({ darkPage }) => {
+    // ...
+  });
+});
+```
+
+## 🏗️ Action time with the good old Danube shop (or your own site)
+
+**Tasks**
+
+- [ ] Restructure your existing tests to implement a `loggedInPage` fixture that is automatically logged in and logs itself after it was used in a test
