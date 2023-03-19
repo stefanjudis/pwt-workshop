@@ -85,15 +85,15 @@ const button = product.getByRole('button', { name: 'Add to cart' });
 - ...
 
 > **Note**
-> To find the best action `codegen` is an invaluable tool here, too!
+> To find the best action, `codegen` is an invaluable tool here, too!
 
 The most important concept when it comes to PWT is that actions [auto-wait](https://playwright.dev/docs/actionability). A `click` isn't only a `click`.
 
-`await locator.click()` waits until the element is actionable:
+`await locator.click()` waits until the element is [actionable](https://playwright.dev/docs/actionability):
 
 - the matching element is attached to the DOM
 - the matching element is visible
-- the matching element is stable, as in not animating
+- the matching element is stable (not animating)
 - the matching element is able to receive events (not obscured by other elements)
 - the matching element is enabled (no `disabled attribute)
 
@@ -115,7 +115,7 @@ await page.getByLabel('User Name').fill('John Doe');
 
 ![Actionability log](../../assets/02-01-actionability-log.png)
 
-> **Info**
+> **Note**
 > These auto-waiting concepts allow you to drop many manual `waitFor` statements because you don't have to check if an element exists. Actions will wait/retry until an element is available or throw a timeout.
 
 ```javascript

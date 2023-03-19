@@ -1,18 +1,32 @@
 # Check that your site works correctly
 
-After recording your test case, you're already testing that the site works properly. To nail down details you need to add assertions.
+Due to auto-waiting mechanisms, a recorded test case tests many web functionality and critical user flows already. To nail down implementation details and test for data correctness, you need to add assertions.
 ## Generic vs async assertions (web-first assertions)
 
-The auto-waiting concept also applies when you start adding assertions to your tests.
-
-[Generic matchers a synchronous](https://playwright.dev/docs/api/class-genericassertions). Async assertions come as a handy alternative.
-
-Web-first assertions wait and retry until the condition is met or the time out is reached.
+Playwright Test provides an assertion library out of the box.
 
 ```javascript
+import { test, expect } from '@playwright/test';
+```
+
+`expect` produces generic and async assertions.
+
+[Generic matchers are synchronous](https://playwright.dev/docs/api/class-genericassertions) and are valuable for simple comparisons such as comparing two numbers.
+
+```javascript
+// a synchronous generic assertion
+expect(number).toBe(2)
+```
+
+But to test, web functionality async assertions come as a handy alternative. Playwright's web-first assertions are tailored to the web and asynchronous. They're based on similar auto-waiting principles and wait / retry until a condition is met or the time out is reached.
+
+```javascript
+// an asynchronous web-first assertion
+// this assertion waits / retries until the located element becomes visible
 await expect(page.getByText('welcome')).toBeVisible();
 ```
-In general, web-first assertions are more convenient to write and leverage PWT's core functionality.
+
+If you're testing websites, web-first assertions are more convenient to write and leverage PWT's core functionality.
 
 ```javascript
 import { test, expect } from '@playwright/test';
@@ -21,9 +35,11 @@ test('has title', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
   // 👎
+  // test a condition at a single moment in time
   expect(await page.getByText('welcome').isVisible()).toBe(true);
 
   // 👍
+  // wait for a condition to become truthy over time
   await expect(page.getByText('welcome')).toBeVisible();
 });
 ```
