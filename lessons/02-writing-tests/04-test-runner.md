@@ -133,7 +133,29 @@ test('basic test', async ({ page }, testInfo) => {
 });
 ```
 
-TODO maybe test annotations
+> **Note** Test attachments can be very handy when you tests are dealing with up and downloads.
+
+### Custom annotations
+
+`fixme` or `slow` tests will be annotated with their particular labels.
+
+![fixme annotation](../../assets/02-04-fixme-annotation.png)
+
+It's also possible to add your own annotations to the test report.
+
+```javascript
+test("is logged in", async ({ loggedInPage }, testInfo) => {
+  testInfo.annotations.push({
+    type: "Some thing is a 🐟y here",
+    description: "https://some-url.com",
+  });
+  // ...
+});
+```
+
+This can be valuable if you want to reference or link other materials.
+
+![A custom annotation](../../assets/02-04-custom-annotation.png)
 
 ## 🏗️ Action time with the good old Danube shop (or your own site)
 

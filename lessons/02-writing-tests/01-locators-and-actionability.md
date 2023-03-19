@@ -95,7 +95,7 @@ The most important concept when it comes to PWT is that actions [auto-wait](http
 - the matching element is visible
 - the matching element is stable (not animating)
 - the matching element is able to receive events (not obscured by other elements)
-- the matching element is enabled (no `disabled attribute)
+- the matching element is enabled (no `disabled` attribute)
 
 Additionally, when an action was performed it'll wait until a possible navigation is completed.
 
