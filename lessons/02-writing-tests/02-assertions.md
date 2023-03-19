@@ -101,8 +101,8 @@ await expect(anotherLocator).toBeVisible();
 > **Note**
 > Unless you want to explicitely wait for a particular URL to be loaded after a navigation there's little benefit in calling `page.waitForUrl` or similar methods.
 
-## 🏗️ Example with the good old Danube shop (or your own site)
+## 🏗️ Action time with the good old Danube shop (or your own site)
 
-**Task**:
+**Task**
 
 

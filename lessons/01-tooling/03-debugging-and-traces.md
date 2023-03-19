@@ -62,4 +62,13 @@ But trace files aren't only accessible via the command line. If you have a trace
 
 ------
 
+## 🏗️ Action time with the good old Danube shop (or your own site)
+
+**Task**
+
+- [ ] Start a debug session to inspect what your tests are doing
+- [ ] Generate and inspect traces for your generated test run
+
+-----
+
 These are the most important things to know about the provided Playwright Test tooling. [Let's have a look at important Playwright Test concepts](../02-writing-tests/01-locators-and-actionability.md).

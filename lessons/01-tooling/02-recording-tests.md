@@ -39,4 +39,12 @@ test('test', async ({ page }) => {
 
 -----
 
+## 🏗️ Action time with the good old Danube shop (or your own site)
+
+**Task**
+
+- [ ] Record a new test case and log into [Danube](https://danube-web.shop/) (Email: `user@email.com`, Password: `supersecure1`)
+
+-----
+
 But how do you debug tests in a headless world? [Let's look at debugging and tracing](./03-debugging-and-traces.md).

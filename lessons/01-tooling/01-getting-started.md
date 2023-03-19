@@ -45,4 +45,10 @@ During the workshop we'll look at:
 
 -----
 
+## 🏗️ Action time with the good old Danube shop (or your own site)
+
+- [ ] Install and run your first Playwright tests against `playwright.dev`
+
+-----
+
 Let's get started and give you [a headstart by recording your first test](./02-recording-tests.md)!
