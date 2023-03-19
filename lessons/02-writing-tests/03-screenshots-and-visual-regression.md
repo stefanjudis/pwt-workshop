@@ -50,6 +50,37 @@ test("get started link", async ({ page, browserName }) => {
 
 ## Visual regression snapshots
 
+Even though screenshots are handy to evaluate what your tests are doing you can level it up a notch and implement visual regression testing with a single assertion — [`toHaveScreenshot()`](https://playwright.dev/docs/api/class-pageassertions#page-assertions-to-have-screenshot-1)
+
+```javascript
+test.only("get started link", async ({ page, browserName }) => {
+  await page.goto("https://playwright.dev/");
+  // visual regression works on a page level...
+  await expect(page).toHaveScreenshot("home.png");
+  // but also on a locator level
+  await expect(page.getByRole("link", { name: "Docs" })).toHaveScreenshot(
+    "docs.png"
+  );
+});
+```
+
+`toHaveScreenshot()` will create page and component screenshots next to your test files and perform visual regression tests in future runs. Additionally, it automatically captures the browser and OS in use to take the screenshot (`[test-name]-[browser]-[os].png`).💪
+
+> **Note**
+> Playwright provides functionality to handle animations and transitions when taking screenshots. Static screenshots allow animations where as visual regression snapshot disable animations by default.
+
+## Screenshot configuration
+
+[`screenshot(https://playwright.dev/docs/api/class-page#page-screenshot)`]() and [`toHaveScreenshot()`](https://playwright.dev/docs/api/class-pageassertions#page-assertions-to-have-screenshot-1) provide multiple configuration options:
+
+- `mask`
+- `maxDiffRatio`
+- `scale`
+- ...
+
+Familialize yourself with all these options to get the most of your screenshots!
+
 ## 🏗️ Example with the good old Danube shop (or your own site)
 
-**Task**:
+
+**Tasks**:
