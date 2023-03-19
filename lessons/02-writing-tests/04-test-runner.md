@@ -31,6 +31,7 @@ test.describe("playwright", () => {
   test.beforeAll(async () => {
     console.log("Before tests");
   });
+
   test.beforeEach(async () => {
     console.log("Before each");
   });
@@ -44,8 +45,9 @@ test.describe("playwright", () => {
   });
 
   test.afterEach(async () => {
-    console.log("Before each");
+    console.log("After each");
   });
+
   test.afterAll(async () => {
     console.log("After tests");
   });
@@ -54,7 +56,11 @@ test.describe("playwright", () => {
 ```
 
 > **Warning** Suppose you see multiple `beforeAll` and `afterAll` logs, what's happening?
-> Playwright tries to run as many tests in parallel as possible. This can be configured on a project or test level. We'll look into this in a moment.
+> Playwright tries to run as many tests in parallel as possible. These test runs are executed in different processes so that `beforeAll` and `afterAll` need to be ran multiple times. We'll look into parallelism in a moment.
+
+## Handy testing utility methods
+
+
 
 TODO parallelism
 TODO fixme, only, etc.
