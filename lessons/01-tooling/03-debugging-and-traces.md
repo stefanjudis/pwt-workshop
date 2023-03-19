@@ -14,7 +14,6 @@ Spin up the Playwright debugger with the `--debug` flag.
 ```
 $ npx playwright test --debug
 $ npx playwright test tests/example.spec.js --debug
-$ npx playwright test tests/example.spec.js --debug
 ```
 
 Check all available test options via `npx playwright test --help`.

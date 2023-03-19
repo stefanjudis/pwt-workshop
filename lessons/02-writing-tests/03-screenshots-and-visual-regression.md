@@ -50,7 +50,7 @@ test("get started link", async ({ page, browserName }) => {
 
 ## Visual regression snapshots
 
-Even though screenshots are handy to evaluate what your tests are doing you can level it up a notch and implement visual regression testing with a single assertion — [`toHaveScreenshot()`](https://playwright.dev/docs/api/class-pageassertions#page-assertions-to-have-screenshot-1)
+Even though screenshots are handy to evaluate what your tests are doing you can level it up a notch and implement visual regression testing with a single assertion — [`toHaveScreenshot()`](https://playwright.dev/docs/api/class-pageassertions#page-assertions-to-have-screenshot-1).
 
 ```javascript
 test.only("get started link", async ({ page, browserName }) => {

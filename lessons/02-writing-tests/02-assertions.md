@@ -9,7 +9,7 @@ Playwright Test provides an assertion library out of the box.
 import { test, expect } from '@playwright/test';
 ```
 
-`expect` produces generic and async assertions.
+`expect` provides generic and async assertions.
 
 [Generic matchers are synchronous](https://playwright.dev/docs/api/class-genericassertions) and are valuable for simple comparisons such as comparing two numbers.
 
@@ -18,7 +18,7 @@ import { test, expect } from '@playwright/test';
 expect(number).toBe(2)
 ```
 
-But to test, web functionality async assertions come as a handy alternative. Playwright's web-first assertions are tailored to the web and asynchronous. They're based on similar auto-waiting principles and wait / retry until a condition is met or the time out is reached.
+To test web functionality, async assertions come as a handy alternative. Playwright's web-first assertions are tailored to the web and asynchronous. They're based on similar auto-waiting principles and wait / retry until a condition is met or the time out is reached.
 
 ```javascript
 // an asynchronous web-first assertion
