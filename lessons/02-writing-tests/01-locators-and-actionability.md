@@ -74,17 +74,30 @@ const button = product.getByRole('button', { name: 'Add to cart' });
 
 [Playwright provides action methods for all common user interactions](https://playwright.dev/docs/input).
 
-But the most important concept when it comes to PWT is that actions [auto-wait](https://playwright.dev/docs/actionability).
+- `locator.fill()`
+- `locator.check()`
+- `locator.selectOption()`
+- `locator.click()`
+- `locator.dblclick()`
+- `locator.hover()`
+- `locator.type()`
+- `locator.press()`
+- ...
 
-`await locator.click()` waits until:
+> **Note**
+> To find the best action `codegen` is an invaluable tool here, too!
 
-- element is attached to the DOM
-- element is visible
-- element is stable, as in not animating
-- element is able to receive events (not obscured by other elements)
-- element is enabled (no `disabled attribute)
+The most important concept when it comes to PWT is that actions [auto-wait](https://playwright.dev/docs/actionability). A `click` isn't only a `click`.
 
-Additionally, when an action is performed it'll wait until a possible navigation is completed.
+`await locator.click()` waits until the element is actionable:
+
+- the matching element is attached to the DOM
+- the matching element is visible
+- the matching element is stable, as in not animating
+- the matching element is able to receive events (not obscured by other elements)
+- the matching element is enabled (no `disabled attribute)
+
+Additionally, when an action was performed it'll wait until a possible navigation is completed.
 
 ```javascript
 // Concept 1:
@@ -98,11 +111,21 @@ await page.getByLabel('User Name').fill('John Doe');
 ```
 
 > **Note**
-> Debug all the taken actionability steps with the "Actionability Log" included in `npx playwright test --debug`.
+> Debug all the taken actionability steps with the "Actionability Log" included in the debugger that shows up when running `npx playwright test --debug`.
 
 ![Actionability log](../../assets/02-01-actionability-log.png)
 
-🌟 These auto-waiting concepts allow you to drop many manual `waitFor` statements and make your tests more resilient.
+> **Info**
+> These auto-waiting concepts allow you to drop many manual `waitFor` statements because you don't have to check if an element exists. Actions will wait/retry until an element is available or throw a timeout.
+
+```javascript
+// 👎
+await expect(page.getByText('Login')).toBeVisible();
+await page.getByText('Login').click();
+
+// 👍
+await page.getByText('Login').click();
+```
 
 ## 💪 Example with the good old Danube shop (or your own site)
 
