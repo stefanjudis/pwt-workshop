@@ -84,7 +84,7 @@ Familialize yourself with all these options to get the most of your screenshots!
 
 **Tasks**:
 
-[ ] Take full page and element screenshots
-[ ] Mask DOM elements in your screenshots
-[ ] Implement visual snapshot testing in one test case
+- [ ] Take full page and element screenshots
+- [ ] Mask DOM elements in your screenshots
+- [ ] Implement visual snapshot testing in one test case
 
