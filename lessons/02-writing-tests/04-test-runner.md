@@ -144,3 +144,5 @@ TODO maybe test annotations
 - [ ] Add additional grouping logic into your tests using `test.step()`
 - [ ] Move the initial site navigation into a `beforeEach` hook
 - [ ] Extend the `beforeEach` and log into [the Danube webshop](https://danube-web.shop/), too (Email: `user@email.com`, Password: `supersecure1`)
+
+> **Note** If you want to share login state across test runs, [check the Playwright docs](https://playwright.dev/docs/auth).

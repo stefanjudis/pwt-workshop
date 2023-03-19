@@ -56,6 +56,7 @@ type MyFixtures = {
 
 // 1. extend the provided `test` method
 const test = base.extend({
+  // note that custom fixture can also reuse existing fixtures such as `browser`
   darkPage: async ({ browser }, use) => {
     // this is before the fixture is used (similar to `beforeEach`)
     console.log("before custom fixture");
@@ -122,8 +123,10 @@ test.describe("A light and dark mode page", () => {
 });
 ```
 
+And you made it! You now have a `my-setup` file that is able to hold all your custom logic.
+
 ## 🏗️ Action time with the good old Danube shop (or your own site)
 
 **Tasks**
 
-- [ ] Restructure your existing tests to implement a `loggedInPage` fixture that is automatically logged in and logs itself after it was used in a test
+- [ ] Restructure your existing tests to implement a `loggedInPage` fixture that is automatically logged in and logs itself out after it was used in a test.
