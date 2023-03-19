@@ -127,6 +127,6 @@ await page.getByText('Login').click();
 await page.getByText('Login').click();
 ```
 
-## 💪 Example with the good old Danube shop (or your own site)
+## 🏗️ Example with the good old Danube shop (or your own site)
 
 **Task**:

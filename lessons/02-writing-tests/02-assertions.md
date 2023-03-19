@@ -43,22 +43,20 @@ test('has title', async ({ page }) => {
   await expect(page.getByText('welcome')).toBeVisible();
 });
 ```
-## For the fancy: visual regression assertions
-
-TODO
 
 ## Assertion essentials
 
+There are some core things to know about assertions.
 ### Configurable timeouts
 
-Async assertions have a timeout config option if things take longer.
+Web-first assertions have a timeout config option if things take longer.
 
 ```javascript
 await expect(page.getByText('welcome')).toBeVisible({timeout: 10_000})
 ```
 
 > **Note**
-> The default timeout is 5s and can be changed in your Playwright config under `expect.timeout`.
+> The default timeout is 5s and can be changed on a project basis in your Playwright config under `expect.timeout`.
 
 ### Soft assertions
 
@@ -87,22 +85,23 @@ await expect.soft(page, 'should have an awesome title').toHaveTitle('wrong title
 
 ![Custom assertion message](../../assets/02-02-assertion-message.png)
 
-## Auto-waiting is the most important core principle in PWT
+## ❗ Auto-waiting is the most important core principle in Playwright Test
 
 With the built-in auto-waiting mechanisms you rarely have to implement manual `waitFor` statements.
 
 ```javascript
-// Concept 1:
-// Click will for the element to be actionable
-// Click will also auto-wait for a triggered navigation to complete
+// click() waits for the element to be actionable
+// click() waits for a triggered navigation to complete
 await locator.click();
 
-// Concept 2:
-// Assertion will wait for becoming truthy or time out
+// wait for the assertion to become truthy or time out
 await expect(anotherLocator).toBeVisible();
 ```
 
-## Example with the good old Danube shop (or your own site)
+> **Note**
+> Unless you want to explicitely wait for a particular URL to be loaded after a navigation there's little benefit in calling `page.waitForUrl` or similar methods.
+
+## 🏗️ Example with the good old Danube shop (or your own site)
 
 **Task**:
 
