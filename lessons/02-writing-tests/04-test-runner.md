@@ -53,7 +53,7 @@ test.describe("playwright", () => {
 
 ```
 
-> **Warning** There are multiple `beforeAll` and `afterLogs` logs — what's up?
+> **Warning** Suppose you see multiple `beforeAll` and `afterAll` logs, what's happening?
 > Playwright tries to run as many tests in parallel as possible. This can be configured on a project or test level. We'll look into this in a moment.
 
 TODO parallelism
