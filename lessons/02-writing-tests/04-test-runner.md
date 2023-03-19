@@ -107,9 +107,15 @@ test("has title", async ({ page, browserName }) => {
 });
 ```
 
-### `test.skip`
+### [`test.skip`](https://playwright.dev/docs/api/class-test#test-skip-2)
+
+Skip tests.
 
 ```javascript
+test.skip('broken test', async ({ page }) => {
+  // ...
+});
+
 test('skip in WebKit', async ({ page, browserName }) => {
   test.skip(browserName === 'webkit', 'This feature is not implemented for Mac');
   // ...
@@ -118,7 +124,21 @@ test('skip in WebKit', async ({ page, browserName }) => {
 
 ## Test information
 
-TODO fixme, only, etc.
+Additionally to the handy `test` methods you can also access and enrich the gathered test information using [the `testInfo` fixture](https://playwright.dev/docs/api/class-testinfo#test-info-attach).
+
+### Test attachments
+
+Provide additional test information with [`testInfo.attach()`](https://playwright.dev/docs/api/class-testinfo#test-info-attach).
+
+```javascript
+test('basic test', async ({ page }, testInfo) => {
+  await page.goto('https://playwright.dev');
+  const screenshot = await page.screenshot();
+  await testInfo.attach('screenshot', { body: screenshot, contentType: 'image/png' });
+});
+```
+
+TODO maybe test annotations
 
 ## 🏗️ Action time with the good old Danube shop (or your own site)
 
