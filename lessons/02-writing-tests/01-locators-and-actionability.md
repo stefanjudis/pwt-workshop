@@ -1,35 +1,46 @@
 # Start interacting with websites
 
-So far, you've only recorded tests. It's time to understand how PWT handles interactions.
+So far, you've only recorded tests. It's time to understand how Playwright test handles interactions.
 
-[Playwright's core is based on locators](https://playwright.dev/docs/locators).
+[Playwright's selection engine is based on locators](https://playwright.dev/docs/locators) that are available on [the `page` fixture](https://playwright.dev/docs/api/class-page).
 
 ## Locators
 
 The Playwright team highly encourages the usage of "user-first" locators to be as close to the end-user experience as possible. The recommended locators are:
 
-- `page.getByRole()` (user first)
-- `page.getByText()` (user first)
-- `page.getByLabel()` (user first)
-- `page.getByPlaceholder()` (user first)
-- `page.getByAltText()` (user first)
-- `page.getByTitle()` (user first)
-- `page.getByTestId()` ("qa first")
+- `page.getByRole()` (user-first)
+- `page.getByText()` (user-first)
+- `page.getByLabel()` (user-first)
+- `page.getByPlaceholder()` (user-first)
+- `page.getByAltText()` (user-first)
+- `page.getByTitle()` (user-first)
+- `page.getByTestId()` ("qa-first")
 
 > **Note**
-> Use the code generation tools to create locators and tweak them as needed.
+> If you follow the user-first approach, using `codegen` to create and tweak locators leads to results the quickest.
 
-If these don't fit your need, [check other locators](https://playwright.dev/docs/other-locators).
+If these user-first locators don't fit your need, [check other locators](https://playwright.dev/docs/other-locators).
 
 ### Important locator characteristics
+
+Playwright Test's locators include some core functionality you must be aware of.
 
 #### 🌟 Locators are strict
 
 A locator throws an exception if it matches multiple DOM elements.
 
-> **Note**
-> [Find more info in strictness in this YouTube video](https://www.youtube.com/watch?v=SMFuzmxxy8o&list=PLMZDRUOi3a8NtMq3PUS5iJc2pee38rurc).
+```javascript
+await page.getByRole('link').click();
+// Error:
+// locator.click: Error: strict mode violation: getByRole('link') resolved to 31 elements:
+// ...
+```
 
+> **Note**
+> [Find more info in strictness in the docs](https://playwright.dev/docs/locators#strictness) or [this YouTube video](https://www.youtube.com/watch?v=SMFuzmxxy8o&list=PLMZDRUOi3a8NtMq3PUS5iJc2pee38rurc).
+
+> **Warning**
+> Playwright started with interaction methods on the `page` object such as `page.click(selector)`. These are discouraged and deprecated by now.
 #### 🌟 Locators are lazy
 
 Every time a locator is used for an action, an up-to-date DOM element is located on the page.
@@ -81,6 +92,6 @@ await page.getByLabel('User Name').fill('John Doe');
 
 🌟 These auto-waiting concepts allow you to drop many manual `waitFor` statements and make your tests more resilient.
 
-## 💪 Example with the good old Danube shop
+## 💪 Example with the good old Danube shop (or your own site)
 
-TODO
+**Task**:

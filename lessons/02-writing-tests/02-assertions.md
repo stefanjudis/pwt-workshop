@@ -76,14 +76,18 @@ await expect.soft(page, 'should have an awesome title').toHaveTitle('wrong title
 With the built-in auto-waiting mechanisms you rarely have to implement manual `waitFor` statements.
 
 ```javascript
-// waits and retries until this locator is actionable
-// waits for possible navigations
+// Concept 1:
+// Click will for the element to be actionable
+// Click will also auto-wait for a triggered navigation to complete
 await locator.click();
 
-// waits for for this element to become visible
+// Concept 2:
+// Assertion will wait for becoming truthy or time out
 await expect(anotherLocator).toBeVisible();
 ```
 
-## Example with the good old Danube shop
+## Example with the good old Danube shop (or your own site)
+
+**Task**:
 
 

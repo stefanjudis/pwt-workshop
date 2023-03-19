@@ -1,13 +1,13 @@
 # Record your first PWT test
 
-To give you a headstart PWT provides "test recording" functionality.
+To give you a headstart PWT provides "test recording" functionality. It's also known as `codegen`.
 ## Record tests via the `playwright` command
 
 ```bash
 $ npx playwright codegen https://danube-web.shop/
 ```
 
-Click around and see how your PWT script develops automatically.
+Click around in the browser that just opened and see how your PWT script develops automatically.
 
 ![Record tests via codegen](../../assets/01-02-recording-with-codegen.png)
 
@@ -15,7 +15,7 @@ Click around and see how your PWT script develops automatically.
 
 Most of the CLI functionality is also available via [the official VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright).
 
-Run and record your tests from within VS Code.
+Suppose you're a VS Code user, run and record your tests from within VS Code.
 
 ![Record tests in VS Code](../../assets/01-02-recording-vs-code.png)
 
@@ -35,8 +35,8 @@ test('test', async ({ page }) => {
 ```
 
 > **Note**
-> `codegen` can only record PWT actions. It's an invaluable tool to get started but to make your tests valuable you have to add assertions manually. **Playwright can't know what you want to test.**
+> `codegen` can only record Playwright Test actions. It's an invaluable tool to get started but to make your tests valuable you have to add assertions manually. **Playwright can't know what you want to test.** We'll come to assertions at a later stage.
 
 -----
 
-But how do you debug tests in a headless world? [Let's look at debugging and tracing](../03-debugging-and-traces/README.md).
+But how do you debug tests in a headless world? [Let's look at debugging and tracing](./03-debugging-and-traces.md).
