@@ -1,5 +1,5 @@
 # Get started with `@playwright/test` (`PWT`)
-> Get up and running with a new Playwright Test project
+> Get up and running with a new Playwright Test project.
 
 Playwright started as an automation library used for web scraping and browser automation similar to Puppeteer. But it quickly evolved to a full test runner and framework that's built to scale.
 

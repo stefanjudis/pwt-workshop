@@ -1,6 +1,7 @@
 # Debug your Playwright tests
+> Debugging with super powers.
 
-To understand what you're tests are doing, it's essential to be familiar with the debugging tools.
+To understand what your tests are doing, it's essential to be familiar with the provided debugging tools.
 
 ## Debug locally and during development
 
