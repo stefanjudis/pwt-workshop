@@ -1,0 +1,47 @@
+# How to gather web performance metrics
+
+Unfortunately, Playwright doesn't have performance gathering built-in, but you can always leverage native browser APIs if you're interested in webperf.
+
+## Navigation timing
+
+```javascript
+const navigationTimingJson = await page.evaluate(() =>
+    JSON.stringify(performance.getEntriesByType('navigation'))
+  )
+const navigationTiming = JSON.parse(navigationTimingJson)
+
+console.log(navigationTiming)
+```
+
+## First contentful paint
+
+```javascript
+const paintTimingJson = await page.evaluate(() =>
+    JSON.stringify(window.performance.getEntriesByType('paint'))
+  )
+const paintTiming = JSON.parse(paintTimingJson)
+
+console.log(paintTiming)
+```
+
+## Largest contentful paint
+
+```javascript
+const largestContentfulPaint = await page.evaluate(() => {
+  return new Promise((resolve) => {
+    new PerformanceObserver((l) => {
+      const entries = l.getEntries()
+      // the last entry is the largest contentful paint
+      const largestPaintEntry = entries.at(-1)
+      resolve(largestPaintEntry.startTime)
+    }).observe({
+      type: 'largest-contentful-paint',
+      buffered: true
+    })
+  })
+})
+
+console.log(parseFloat(largestContentfulPaint))
+```
+
+> **Note** Find more infos about these performance APIs in [our Checkly performance guides](https://www.checklyhq.com/learn/headless/basics-performance/).
