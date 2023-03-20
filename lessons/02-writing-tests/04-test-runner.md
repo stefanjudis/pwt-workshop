@@ -1,10 +1,10 @@
 # The Playwright Test runner
 
-So far, we've only looked at the internals of a particular test run. But how can you control when and how tests are run?
+So far, we've only looked at the internals of a test runs. But how can you control when and how tests are run?
 
 ## `test` / `test.describe`
 
-Suppose your test files grow you can always introduce a cleaner grouping using `test.describe`.
+Suppose your test files grow you can always introduce a clean grouping using `test.describe`.
 
 ```javascript
 const { test, expect } = require('@playwright/test');
@@ -22,7 +22,7 @@ test.describe("playwright", () => {
 
 ## `beforeAll`, `beforeEach`, `afterEach`, `afterAll`
 
-Playwright provides the common test runner methods your might be familiar with.
+Playwright provides the common test runner methods your might be already familiar with.
 
 ```javascript
 const { test, expect } = require('@playwright/test');
@@ -56,7 +56,7 @@ test.describe("playwright", () => {
 ```
 
 > **Warning** Suppose you see multiple `beforeAll` and `afterAll` logs, what's happening?
-> Playwright tries to run as many tests in parallel as possible. These test runs are executed in different processes so that `beforeAll` and `afterAll` need to be ran multiple times. We'll look into parallelism later.
+> Playwright tries to run as many tests in parallel as possible. These test runs are executed in different processes so `beforeAll` and `afterAll` need to be ran multiple times.
 
 > **Note** Even though you might be used to `beforeEach` and `afterEach`, custom fixtures are a handy alternative to structure tests and provide similar functionality across files. More on that later....
 
@@ -107,15 +107,44 @@ test("has title", async ({ page, browserName }) => {
 Skip tests.
 
 ```javascript
+// skip test entirely
 test.skip('broken test', async ({ page }) => {
   // ...
 });
 
+// skip test when it's ran in webkit
 test('skip in WebKit', async ({ page, browserName }) => {
   test.skip(browserName === 'webkit', 'This feature is not implemented for Mac');
   // ...
 });
 ```
+
+## Test steps
+
+For longer tests, it might be valuable to add a third level of grouping - [test steps](https://playwright.dev/docs/api/class-test#test-step).
+
+```javascript
+test.describe("danube tests", () => {
+  test("attach stuff to your test reports", async ({ page }, testInfo) => {
+    let productName;
+
+    test.step("Add to cart", async () => {
+      await page.goto("https://danube-web.shop/");
+      await page.getByText("Haben oder haben").click();
+
+      const detailContainer = page.locator(".detail-content");
+      const productHeading = detailContainer.getByRole("heading", { level: 2 });
+      productName = await productHeading.first().innerText();
+
+      await page.getByRole("button", { name: "Add to cart" }).click();
+    });
+  });
+});
+```
+
+Test steps are a nice way to make your test reports more readable.
+
+![test steps](../../assets/02-04-test-steps.png)
 
 ## Test information
 

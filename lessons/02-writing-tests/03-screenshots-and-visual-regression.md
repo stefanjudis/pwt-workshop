@@ -1,6 +1,7 @@
 # Screenshots and visual regression testing
+> Taking some pretty pictures on the way.
 
-Even though Playwright provides stellar tools to debug your tests sometimes you might want to take screenshots on the way. [Playwright provides screenshot functionality on the page and locator level](https://playwright.dev/docs/screenshots).
+Even though Playwright provides stellar tools to debug your tests, sometimes you might want to take screenshots while running your tests. [Playwright provides screenshot functionality on the page and locator level](https://playwright.dev/docs/screenshots).
 
 ## Page screenshots
 
@@ -15,7 +16,7 @@ test("get started link", async ({ page }) => {
 });
 ```
 
-Use `page.screenshot` to capture the state of the page.
+Use `page.screenshot()` to capture the state of the page.
 
 ## Locator screenshots
 
@@ -35,7 +36,7 @@ test("get started link", async ({ page }) => {
 
 ## How to leverage browser names in your screenshot path
 
-If you're running parallel tests with multiple browsers, including the browser name in the screenshot path avoids that all the screenshots overwrite each other.
+If you're running parallel tests with multiple browsers, including the `browserName` in the screenshot path avoids that all the screenshots overwrite each other.
 
 ```javascript
 test("get started link", async ({ page, browserName }) => {
@@ -84,7 +85,7 @@ Familialize yourself with all these options to get the most out of your screensh
 
 **Tasks**
 
-- [ ] Take full page and element screenshots
+- [ ] Take a full page and element screenshots
 - [ ] Mask DOM elements in your screenshots
 - [ ] Implement visual snapshot testing in a test case
 

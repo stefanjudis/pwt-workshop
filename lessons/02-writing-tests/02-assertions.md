@@ -79,6 +79,15 @@ Soft assertion are particularly helpful when running longer tests.
 
 ![Soft assertion example in the HTML report](../../assets/02-02-soft-assertions.png)
 
+### Assertions can be negated
+
+Assertions also provide a quick way to flip their meaning around.
+
+```javascript
+await expect(locator).toBeVisible();
+await expect(locator).not.toBeVisible();
+```
+
 ### Custom assertion messages
 
 To make your assertions more readable you can also define a custom message.
@@ -105,8 +114,28 @@ await expect(anotherLocator).toBeVisible();
 > **Note**
 > Unless you want to explicitely wait for a particular URL there's little benefit in calling `page.waitForUrl` or similar methods.
 
+## Access data from the page
+
+To test if your application works properly you need to query data from the DOM.
+
+Let's say you add an item to a cart and want to check that the correct item is in cart, while being on the product detail page you can query the product title with [`locator.innerText()`](https://playwright.dev/docs/api/class-locator#locator-inner-text).
+
+```javascript
+const productHeading = page.getByRole("heading", { level: 2 });
+const productName = await productHeading.first().allInnerTexts();
+```
+
+And assert that the product is in cart on the next page.
+
+```javascript
+const cartContainer = page.locator(".cart");
+await expect(cartContainer.getByText(`1x, ${productName}`)).toBeVisible();
+```
+
 ## 🏗️ Action time with the good old Danube shop (or your own site)
 
 **Task**
 
-- [ ] Extend your test and assert that the correct items have been added to the Danube cart
+- [ ] Extend your add to cart test and assert that the correct items have been added to the Danube cart.
+
+> **Note** Unfortunately, Danube's HTML structure isn't that great (but which site's is?). So it'll be a little tricky to access the right DOM nodes.
