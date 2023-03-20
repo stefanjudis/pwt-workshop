@@ -88,7 +88,7 @@ $ npx playwright test --project=different # "different" project tests
 ```
 
 ```javascript
-test("without errors", async ({ pageWithoutErrors, myConfigParam }) => {
+test("without errors", async ({ myConfigParam }) => {
   // 42 or 100 depending on which project you run
   console.log(myConfigParam);
 });
