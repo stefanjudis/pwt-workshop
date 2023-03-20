@@ -74,6 +74,9 @@ test('has title', async ({ page }) => {
   // ...
 })
 ```
+
+Soft assertion are particularly helpful when running longer tests.
+
 ![Soft assertion example in the HTML report](../../assets/02-02-soft-assertions.png)
 
 ### Custom assertion messages
@@ -100,7 +103,7 @@ await expect(anotherLocator).toBeVisible();
 ```
 
 > **Note**
-> Unless you want to explicitely wait for a particular URL to be loaded after a navigation there's little benefit in calling `page.waitForUrl` or similar methods.
+> Unless you want to explicitely wait for a particular URL there's little benefit in calling `page.waitForUrl` or similar methods.
 
 ## 🏗️ Action time with the good old Danube shop (or your own site)
 
