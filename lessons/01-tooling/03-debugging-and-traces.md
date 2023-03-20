@@ -29,6 +29,10 @@ Check all available test options via `npx playwright test --help`.
 
 Run particular tests from within VS Code. It's more powerful than the terminal because it allows you to inspect variables and the surrounding scope.
 
+Ensure that you have ticked `Show browser` to see what's happening.
+
+![Show browser option](../../assets/01-03-show-browser.png)
+
 ## Debug remote tests running in CI/CD with traces
 
 But what about test runs that failed in a remote environment? Playwright test provides debugging traces for this case.
