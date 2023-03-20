@@ -34,6 +34,8 @@ module.exports = defineConfig({
 });
 ```
 
+These projects are then available to run via the command line:
+
 ```bash
 $ npx playwright test                     # all projects
 $ npx playwright test --project=Smoke   # "Smoke" project tests
@@ -91,10 +93,3 @@ test("without errors", async ({ pageWithoutErrors, myConfigParam }) => {
   console.log(myConfigParam);
 });
 ```
-
-## Configuration on different levels
-
-TODO parallelism
-TODO test use
-TODO test use describe
-TODO variables such as URLs and stuff
