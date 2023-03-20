@@ -119,7 +119,7 @@ await page.getByLabel('User Name').fill('John Doe');
 ![Actionability log](../../assets/02-01-actionability-log.png)
 
 > **Note**
-> These auto-waiting concepts allow you to drop many manual `waitFor` statements because you don't have to check if an element exists. Actions will wait/retry until an element is available or throw a timeout error.
+> These auto-waiting concepts allow you to drop many manual `waitFor` statements because you don't have to check if an element exists or is visible. Actions will wait/retry until an element is "ready for action" or throw a timeout error in your test.
 
 ```javascript
 // 👎
@@ -135,3 +135,5 @@ await page.getByText('Login').click();
 **Task**
 
 - [ ] Record and test the add to cart functionality on `https://danube-web.shop`
+
+> **Important** Unfortunately, there's a bug in the checkout and all fields need to be filled out. 🤦‍♂️
