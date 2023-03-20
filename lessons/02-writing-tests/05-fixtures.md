@@ -42,6 +42,8 @@ test("has title", async ({ page, browserName }) => {
 });
 ```
 
+> **Note** Each `page` object is isolated to this particular test run.
+
 ## Create a custom fixture
 
 When I comes to Playwright Test there are always multiple ways to do things, but let's assume you want to provide a page object that emulates dark mode. How could you do this with a fixture that's available in all your tests.
@@ -81,7 +83,7 @@ test.describe("A light and dark mode page", () => {
 });
 ```
 
-> **Note** Dark color scheme emulation is configurable in multiple place (project and test configuration). I only took it as an example.
+> **Note** Dark color scheme emulation is configurable in multiple place (project and test configuration). I only took it it as a fixture example.
 
 But now your fixture still lives in the same file as your test. It's time to restructure things.
 

@@ -164,7 +164,7 @@ This can be valuable if you want to reference or link other materials.
 - [ ] Restructure your existing tests to use `test.describe`
 - [ ] Attach a screenshot to your HTML test report using `test.info().attach()`
 - [ ] Add additional grouping logic into your tests using `test.step()`
-- [ ] Move the initial site navigation into a `beforeEach` hook
+- [ ] Move the initial site navigation (`page.goto`) into a `beforeEach` hook
 - [ ] Extend the `beforeEach` and log into [the Danube webshop](https://danube-web.shop/), too (Email: `user@email.com`, Password: `supersecure1`)
 
 > **Note** If you want to share login state across test runs, [check the Playwright docs](https://playwright.dev/docs/auth).

@@ -1,0 +1,53 @@
+# Interfere with the network
+
+Playwright allows you to monitor and alter HTTP requests easily.
+
+```javascript
+// Subscribe to and log 'request' and 'response' events
+page.on('request', request => console.log('>>', request.method(), request.url()));
+page.on('response', response => console.log('<<', response.status(), response.url()));
+
+await page.goto('https://example.com');
+```
+
+If you want to wait for a request to finish before continuing with your tests, [use `page.waitForResponse()`](https://playwright.dev/docs/api/class-page#page-wait-for-response).
+
+```javascript
+// Wait for a JPEG to be requested after a button click
+const responsePromise = page.waitForResponse(/\.jpeg$/);
+await page.getByText('Update').click();
+const response = await responsePromise;
+```
+
+## Mock APIs and cancel requests
+
+Suppose you want to only test your frontend, mock APIs can speed up your test tremendously. The [`page.route()`](https://playwright.dev/docs/api/class-page#page-route) method enables you inject yourself into the network layer and respond with test data quickly.
+
+```javascript
+// Moch an API request
+await page.route('**/api/fetch_data', route => route.fulfill({
+  status: 200,
+  body: testData,
+}));
+await page.goto('https://example.com');
+```
+
+Additionally, if you're running many end-to-end test it might be valuable to stop loading images or block tracking requests. [`page.route()` can do that](https://playwright.dev/docs/api/class-page#page-route), too.
+
+```
+// Block and abort all image requests if you're testing functionality
+await page.route('**/*.{png,jpg,jpeg}', route => route.abort());
+await page.goto('https://example.com');
+await browser.close();
+```
+
+> **Note** Network handling has to be defined before the navigations. That's why you should place them in `beforeEach` or a custom fixture.
+
+## 🏗️ Action time with the good old Danube shop (or your own site)
+
+**Tasks**
+
+- [ ] Implement a `pageWithoutImages` fixture to speed up your tests.
+
+
+> **Note** Find more information on [how to handle network requests in the Playwright docs](https://playwright.dev/docs/network).
