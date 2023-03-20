@@ -136,4 +136,4 @@ await page.getByText('Login').click();
 
 - [ ] Record and test the add to cart functionality on `https://danube-web.shop`
 
-> **Important** Unfortunately, there's a bug in the checkout and all fields need to be filled out. 🤦‍♂️
+> **Warning** Unfortunately, there's a bug in the checkout and all fields need to be filled out. 🤦‍♂️
