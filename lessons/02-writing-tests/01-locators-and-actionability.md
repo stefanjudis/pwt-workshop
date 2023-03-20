@@ -1,8 +1,11 @@
 # Start interacting with websites
+> To the power of user-first DOM selection.
 
 So far, you've only recorded tests. It's time to understand how Playwright test handles interactions.
 
 [Playwright's selection engine is based on locators](https://playwright.dev/docs/locators) that are available on [the `page` fixture](https://playwright.dev/docs/api/class-page).
+
+> **Note** Don't worry about fixtures. We'll talk about them later.
 
 ## Locators
 
