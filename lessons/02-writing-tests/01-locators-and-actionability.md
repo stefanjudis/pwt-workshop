@@ -25,7 +25,7 @@ If these user-first locators don't fit your need, [check other locators](https:/
 
 Playwright Test's locators include some core functionality you must be aware of.
 
-#### 🌟 Locators are strict
+#### Locators are strict
 
 A locator throws an exception if it matches multiple DOM elements.
 
@@ -41,7 +41,7 @@ await page.getByRole('link').click();
 
 > **Warning**
 > Playwright started with interaction methods on the `page` object such as `page.click(selector)`. These are discouraged and deprecated by now.
-#### 🌟 Locators are lazy
+#### Locators are lazy
 
 Every time a locator is used for an action, an up-to-date DOM element is located on the page.
 
@@ -58,7 +58,7 @@ await locator.click();
 > **Warning**
 > Many people `await` locators. That's unnecessary because they're only holding a locator definition until they're used.
 
-#### 🌟 Locators can be chained
+#### Locators can be chained
 
 To narrow down your selection you can always filter and chain locators.
 
@@ -130,3 +130,5 @@ await page.getByText('Login').click();
 ## 🏗️ Action time with the good old Danube shop (or your own site)
 
 **Task**
+
+- [ ] Record and test the add to cart functionality on `https://danube-web.shop`

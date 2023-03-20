@@ -105,4 +105,4 @@ await expect(anotherLocator).toBeVisible();
 
 **Task**
 
-
+- [ ] Extend your test and assert that the correct items have been added to the Danube cart

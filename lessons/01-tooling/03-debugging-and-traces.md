@@ -5,6 +5,7 @@ To understand what you're tests are doing, it's essential to be familiar with th
 ## Debug locally and during development
 
 Leverage the command line or the VS Code extension to debug with ease.
+
 ### Debugging via the command line
 
 ![Debugging session in VS Code](../../assets/01-03-debugging-via-the-terminal.png)
@@ -26,6 +27,7 @@ Check all available test options via `npx playwright test --help`.
 ![Debugging session in VS Code](../../assets/01-03-debugging-in-vs-code.png)
 
 Run particular tests from within VS Code. It's more powerful than the terminal because it allows you to inspect variables and the surrounding scope.
+
 ## Debug remote tests running in CI/CD with traces
 
 But what about test runs that failed in a remote environment? Playwright test provides debugging traces for this case.
@@ -65,7 +67,7 @@ But trace files aren't only accessible via the command line. If you have a trace
 
 **Task**
 
-- [ ] Start a debug session to inspect what your tests are doing
+- [ ] Start a debug session to inspect what your tests are doing so far
 - [ ] Generate and inspect traces for your generated test run
 
 -----

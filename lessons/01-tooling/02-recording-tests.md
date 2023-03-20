@@ -5,6 +5,7 @@ To give you a headstart PWT provides "test recording" functionality. It's also k
 
 ```bash
 $ npx playwright codegen https://danube-web.shop/
+$ npx playwright codegen https://your-site.de/
 ```
 
 Click around in the browser that just opened and see how your PWT script develops automatically.

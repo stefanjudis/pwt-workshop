@@ -42,13 +42,15 @@ During the workshop we'll look at:
 - parallelism
 - traces
 - devices
+- fixtures
+- auto-waiting
 - and much more.
 
 -----
 
 ## 🏗️ Action time with the good old Danube shop (or your own site)
 
-- [ ] Install and run your first Playwright tests against `playwright.dev`
+- [ ] Install and run the example tests against `playwright.dev` with `npx playwright test`
 
 -----
 

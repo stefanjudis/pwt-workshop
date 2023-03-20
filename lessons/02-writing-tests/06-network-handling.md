@@ -34,8 +34,8 @@ await page.goto('https://example.com');
 
 Additionally, if you're running many end-to-end test it might be valuable to stop loading images or block tracking requests. [`page.route()` can do that](https://playwright.dev/docs/api/class-page#page-route), too.
 
-```
-// Block and abort all image requests if you're testing functionality
+```javascript
+// Block and abort all image requests
 await page.route('**/*.{png,jpg,jpeg}', route => route.abort());
 await page.goto('https://example.com');
 await browser.close();
