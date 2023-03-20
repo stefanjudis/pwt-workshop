@@ -35,11 +35,11 @@ Ensure that you have ticked `Show browser` to see what's happening.
 
 ## Debug remote tests running in CI/CD with traces
 
-But what about test runs that failed in a remote environment? Playwright test provides debugging traces for this case.
+The debugger is a great way to develop your tests, but what about test runs that failed in a remote environment, in CI/CD or on your co-workers machine? Playwright test provides debugging traces for this case!
 
 ![Debugging a trace](../../assets/01-03-traces.png)
 
-Change your `playwright.config.[ts|js]` to always collect traces.
+In default configuration Playwright is not collecting traces. But to learn what they're about, change your `playwright.config.js` to always collect a trace for every test.
 
 ```javascript
 // playwright.config.js
@@ -51,10 +51,18 @@ module.exports = defineConfig({
 });
 ```
 
-This setting will generate trace files for every single test. A trace file is a detailed recording of every step your test case performed — all debug information is available in a single `trace.zip` file under `test-results`.
+Run your tests.
+
+```
+$ npx playwright test
+```
+
+This setting will now generate trace files for every single test. A trace file is a detailed recording of every step your test case performed — all debug information is available a `test-results/trace.zip`.
 
 > **Note**
 > Trace file generation slows Playwright down. It's recommend to only generate trace files for possibly failed and retried tests (`on-first-retry`).
+
+But that's a `zip` file. What's next?
 
 ### Inspect traces via the command line
 
