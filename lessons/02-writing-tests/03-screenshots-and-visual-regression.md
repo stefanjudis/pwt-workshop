@@ -5,7 +5,7 @@ Even though Playwright provides stellar tools to debug your tests sometimes you 
 ## Page screenshots
 
 ```javascript
-import { test, expect } from "@playwright/test";
+const { test, expect } = require('@playwright/test');
 
 test("get started link", async ({ page }) => {
   await page.goto("https://playwright.dev/");
@@ -22,7 +22,7 @@ Use `page.screenshot` to capture the state of the page.
 If you're only interested in a particular DOM element, locators provide screenshots, too.
 
 ```javascript
-import { test, expect } from "@playwright/test";
+const { test, expect } = require('@playwright/test');
 
 test("get started link", async ({ page }) => {
   await page.goto("https://playwright.dev/");
@@ -78,7 +78,7 @@ test("get started link", async ({ page, browserName }) => {
 - `scale`
 - ...
 
-Familialize yourself with all these options to get the most of your screenshots!
+Familialize yourself with all these options to get the most out of your screenshots!
 
 ## 🏗️ Action time with the good old Danube shop (or your own site)
 

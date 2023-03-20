@@ -25,7 +25,7 @@ Suppose you're a VS Code user, run and record your tests from within VS Code.
 After a recorded session you should have the first test available and it should look as follows.
 
 ```javascript
-import { test, expect } from '@playwright/test';
+const { test, expect } = require('@playwright/test');
 
 test('test', async ({ page }) => {
   await page.goto('https://danube-web.shop/');

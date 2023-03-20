@@ -50,11 +50,8 @@ When I comes to Playwright Test there are always multiple ways to do things, but
 
 ```javascript
 // example.spec.ts
-import { test as base, expect, Page } from "@playwright/test";
+const base = require('@playwright/test');
 
-type MyFixtures = {
-  darkPage: Page;
-};
 
 // 1. extend the provided `test` method
 const test = base.extend({
@@ -89,32 +86,28 @@ But now your fixture still lives in the same file as your test. It's time to res
 
 ```
 tests
-  |_ my-setup.ts
-  |_ example.spec.ts
+  |_ my-setup.js
+  |_ example.spec.js
 ```
 
-Create a new `my-setup.ts` file and export your extended `test` object and also `expect`.
+Create a new `my-setup.js` file and export your extended `test` object and also `expect`.
 
-```typescript
-import { test as base, Page } from "@playwright/test";
+```javascript
+const base = require('@playwright/test');
 
-type MyFixtures = {
-  darkPage: Page;
-};
-
-export const test = base.extend({
+exports.test = base.extend({
   darkPage: async ({ browser }, use) => {
     // your fixture logic
   },
 });
 
-export { expect } from "@playwright/test";
+exports.expect = base.expect;
 ```
 
 And import `test` and `expect` from your spec files.
 
 ```javascript
-import { test, expect } from './my-setup'
+const { test, expect } = require('./my-setup');
 
 // all your test logic
 test.describe("A light and dark mode page", () => {

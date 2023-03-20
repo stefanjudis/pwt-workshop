@@ -6,6 +6,9 @@ Due to auto-waiting mechanisms, a recorded test case tests many web functionalit
 Playwright Test provides an assertion library out of the box.
 
 ```javascript
+// JavaScript
+const { test, expect } = require('@playwright/test');
+// TypeScript
 import { test, expect } from '@playwright/test';
 ```
 
@@ -29,7 +32,7 @@ await expect(page.getByText('welcome')).toBeVisible();
 If you're testing websites, web-first assertions are more convenient to write and leverage PWT's core functionality.
 
 ```javascript
-import { test, expect } from '@playwright/test';
+const { test, expect } = require('@playwright/test');
 
 test('has title', async ({ page }) => {
   await page.goto('https://playwright.dev/');

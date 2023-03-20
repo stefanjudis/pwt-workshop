@@ -7,7 +7,7 @@ So far, we've only looked at the internals of a particular test run. But how can
 Suppose your test files grow you can always introduce a cleaner grouping using `test.describe`.
 
 ```javascript
-import { test, expect } from "@playwright/test";
+const { test, expect } = require('@playwright/test');
 
 test.describe("playwright", () => {
   test("has title", async ({ page }) => {
@@ -25,7 +25,7 @@ test.describe("playwright", () => {
 Playwright provides the common test runner methods your might be familiar with.
 
 ```javascript
-import { test, expect } from "@playwright/test";
+const { test, expect } = require('@playwright/test');
 
 test.describe("playwright", () => {
   test.beforeAll(async () => {
@@ -164,7 +164,7 @@ This can be valuable if you want to reference or link other materials.
 - [ ] Restructure your existing tests to use `test.describe`
 - [ ] Attach a screenshot to your HTML test report using `test.info().attach()`
 - [ ] Add additional grouping logic into your tests using `test.step()`
-- [ ] Move the initial site navigation (`page.goto`) into a `beforeEach` hook
+- [ ] Dry up your code and move the initial site navigation (`page.goto`) into a `beforeEach` hook
 - [ ] Extend the `beforeEach` and log into [the Danube webshop](https://danube-web.shop/), too (Email: `user@email.com`, Password: `supersecure1`)
 
 > **Note** If you want to share login state across test runs, [check the Playwright docs](https://playwright.dev/docs/auth).

@@ -38,6 +38,7 @@ await page.goto('data:text/html,<script>throw new Error("Test")</script>');
 ```
 
 > **Note** There are way more page events to react to. [Find more events in the Playwright documentation](https://playwright.dev/docs/api/class-page#page-event-page-error).
+
 ## 🏗️ Action time with the good old Danube shop (or your own site)
 
 **Tasks**
