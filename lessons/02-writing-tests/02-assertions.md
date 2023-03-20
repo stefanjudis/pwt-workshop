@@ -7,10 +7,7 @@ Due to auto-waiting mechanisms, a recorded test case tests many web functionalit
 Playwright Test provides an assertion library out of the box.
 
 ```javascript
-// JavaScript
 const { test, expect } = require('@playwright/test');
-// TypeScript
-import { test, expect } from '@playwright/test';
 ```
 
 `expect` provides generic and async assertions.
@@ -22,7 +19,7 @@ import { test, expect } from '@playwright/test';
 expect(number).toBe(2)
 ```
 
-To test web functionality, async assertions come as a handy alternative. Playwright's web-first assertions are tailored to the web and asynchronous. They're based on similar auto-waiting principles and wait / retry until a condition is met or the time out is reached.
+To test web functionality, async assertions come as a handy alternative. Playwright's web-first assertions are tailored to the web and asynchronous. **They're based on the auto-waiting principles for actions and wait / retry until a condition is met or the time out is reached**.
 
 ```javascript
 // an asynchronous web-first assertion
