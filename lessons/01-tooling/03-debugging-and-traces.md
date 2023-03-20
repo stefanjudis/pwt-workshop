@@ -37,10 +37,9 @@ But what about test runs that failed in a remote environment? Playwright test pr
 Change your `playwright.config.[ts|js]` to always collect traces.
 
 ```javascript
-// playwright.config.ts
-export default defineConfig({
+// playwright.config.js
+module.exports = defineConfig({
   use: {
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
   },
 	// ...
