@@ -10,6 +10,7 @@ The best way to get started is the default `init` command.
 ```bash
 $ npm init playwright@latest
 ```
+> **Warning** Unless your very (!) fluent in TypeScript please choose JavaScript in the setup guide. If you're using a modern editor you'll still be able to use Intellisense.
 
 Confirm that the installation succeeded by running your first PWT test.
 
