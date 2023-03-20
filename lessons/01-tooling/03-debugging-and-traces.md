@@ -69,6 +69,8 @@ But that's a `zip` file. What's next?
 ```
 $ npx playwright show-trace test-results/example-has-title-webkit/trace.zip
 ```
+
+The trace viewer provides all taken steps, a timeline and an HTML snapshot of the page. It's time travel debugging for your end-to-end tests.
 ### Inspect traces via the online trace viewer
 
 But trace files aren't only accessible via the command line. If you have a trace `zip`, you can also always inspect it at [trace.playwright.dev/](https://trace.playwright.dev/).
