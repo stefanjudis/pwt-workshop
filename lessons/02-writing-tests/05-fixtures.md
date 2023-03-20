@@ -1,6 +1,9 @@
 # Restructure and tidy up your code with custom fixtures
+> The Playwright-native approach to structure your tests.
 
-If you finished the previous exercise, you should have a login step in a test case's `beforeEach` hook. But here's a question, how can you reuse this login step for tests living in other test files?
+If you finished the previous exercise, you should have a login step in a test case's `beforeEach` hook [similar to this one](../../solutions/tests/02-04-test-runner.spec.js).
+
+But here's a question, how can you reuse this login step for tests living in other test files?
 
 ```javascript
 test.describe("Danube", () => {
@@ -18,9 +21,9 @@ test.describe("Danube", () => {
 });
 ```
 
-This is where custom fixtures come into play. This might sound complicated but you used built-in fixtures the entire time.
+This is where custom fixtures come in. The term "fixtures" might sound complicated but you used built-in fixtures the entire time.
 
-> **Note** If you want to learn how fixtures work, [here's a YouTube explainer](https://www.youtube.com/watch?v=2O7dyz6XO2s&t=15s).
+> **Note** If you want to learn how fixtures work, [read more about them in the docs](https://playwright.dev/docs/test-fixtures) or [check this YouTube explainer](https://www.youtube.com/watch?v=2O7dyz6XO2s&t=15s).
 
 ## Built-in fixtures
 
@@ -52,15 +55,14 @@ When I comes to Playwright Test there are always multiple ways to do things, but
 // example.spec.ts
 const base = require('@playwright/test');
 
-
 // 1. extend the provided `test` method
-const test = base.extend({
+const test = base.test.extend({
   // note that custom fixture can also reuse existing fixtures such as `browser`
   darkPage: async ({ browser }, use) => {
     // this is before the fixture is used (similar to `beforeEach`)
     console.log("before custom fixture");
     // the provided object will be accessed from a test case
-    use(
+    await use(
       await browser.newPage({
         colorScheme: "dark",
       })
@@ -95,7 +97,7 @@ Create a new `my-setup.js` file and export your extended `test` object and also 
 ```javascript
 const base = require('@playwright/test');
 
-exports.test = base.extend({
+exports.test = base.test.extend({
   darkPage: async ({ browser }, use) => {
     // your fixture logic
   },
@@ -118,7 +120,7 @@ test.describe("A light and dark mode page", () => {
 });
 ```
 
-And you made it! You now have a `my-setup` file that can be reused across tests and is able to hold all your custom logic.
+And you made it! You now have a `my-setup` file that can be reused across tests and is able to hold all your custom business logic.
 
 ## 🏗️ Action time with the good old Danube shop (or your own site)
 

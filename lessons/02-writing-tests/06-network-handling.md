@@ -1,4 +1,5 @@
 # Interfere with the network
+> Take the network into consideration.
 
 Playwright allows you to monitor and alter HTTP requests easily.
 
@@ -27,12 +28,12 @@ Suppose you want to only test your frontend, mock APIs can speed up your test tr
 // Moch an API request
 await page.route('**/api/fetch_data', route => route.fulfill({
   status: 200,
-  body: testData,
+  body: {},
 }));
 await page.goto('https://example.com');
 ```
 
-Additionally, if you're running many end-to-end test it might be valuable to stop loading images or block tracking requests. [`page.route()` can do that](https://playwright.dev/docs/api/class-page#page-route), too.
+Additionally, if you're running many end-to-end test it might be valuable to avoid loading images or block tracking requests. [`page.route()` can do that](https://playwright.dev/docs/api/class-page#page-route), too.
 
 ```javascript
 // Block and abort all image requests
@@ -47,7 +48,7 @@ await browser.close();
 
 **Tasks**
 
-- [ ] Implement a `pageWithoutImages` fixture to speed up your tests.
+- [ ] Implement a `pageWithoutImages` fixture to speed up your tests and block imags from loading.
 
 
 > **Note** Find more information on [how to handle network requests in the Playwright docs](https://playwright.dev/docs/network).

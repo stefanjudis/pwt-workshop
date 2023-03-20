@@ -1,4 +1,5 @@
 # How to gather web performance metrics
+> Interact with pages directly.
 
 Unfortunately, Playwright doesn't have performance gathering built-in, but you can always leverage native browser APIs if you're interested in webperf.
 
@@ -58,4 +59,4 @@ console.log(parseFloat(largestContentfulPaint))
 
 **Tasks**
 
-- [ ] Gather performance metrics and attach them to your test reports.
+- [ ] Gather performance metrics and attach them to your test reports as an annotation.

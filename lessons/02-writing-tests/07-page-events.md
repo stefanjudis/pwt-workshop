@@ -1,4 +1,5 @@
 # Page events
+> Ship high quality without exceptions.
 
 The `page` fixture provides multiple events to monitor what's happening. These can be valuable to confirm alerts, catch log messages or monitor JavaScript excpetions.
 
@@ -34,6 +35,7 @@ page.on('pageerror', exception => {
   console.log(`Uncaught exception: "${exception}"`);
 });
 
+// trigger an exception
 await page.goto('data:text/html,<script>throw new Error("Test")</script>');
 ```
 
@@ -43,4 +45,4 @@ await page.goto('data:text/html,<script>throw new Error("Test")</script>');
 
 **Tasks**
 
-- [ ] Implement a fixture that catches console logs and page errors and fails a test if there are any.
+- [ ] Overwrite the `page` fixture to catch console logs and page errors and fails a test if there are any.
