@@ -59,7 +59,7 @@ await locator.click();
 ```
 
 > **Warning**
-> Many people `await` locators. That's unnecessary because they're only holding a locator definition until they're used.
+> Many people `await` locators. That's unnecessary because they're only holding a locator definition until they're used with an action or assertion.
 
 #### Locators can be chained
 
