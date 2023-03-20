@@ -42,4 +42,4 @@ await page.goto('data:text/html,<script>throw new Error("Test")</script>');
 
 **Tasks**
 
-- [ ] Implement a fixture that logs console logs and page errors
+- [ ] Implement a fixture that catches console logs and page errors and fails a test if there are any.
