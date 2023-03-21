@@ -24,7 +24,7 @@ Work through the materials at your own pace. I'll cover lessons every now and th
 - `30min` — Playwright Intro presentation
 - `30min` — Playwright tooling
 - `60min` — Playwright's essential concepts
-- `The rest` — Write your tests!!!
+- `The rest` — Write tests for your project!
 
 -------
 
