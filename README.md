@@ -25,3 +25,7 @@ Work through the materials at your own pace. I'll cover lessons every now and th
 - `30min` — Playwright tooling
 - `60min` — Playwright's essential concepts
 - `The rest` — Write your tests!!!
+
+-------
+
+[Let's get started](./lessons/01-tooling/01-getting-started.md)!
