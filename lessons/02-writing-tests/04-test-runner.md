@@ -59,7 +59,7 @@ test.describe("playwright", () => {
 Fixtures such as `page` are isolated per test but keep their state in life cycle hooks such as `beforeEach` and `afterEach`. For example, you can log into a website in a `beforeEach` hook and all following tests will access encapsulated but logged in `page` objects.
 
 > **Warning** Suppose you see multiple `beforeAll` and `afterAll` logs in your terminal, what's happening?
-> Playwright tries to run as many tests in parallel as possible. These test runs are executed in different processes so `beforeAll` and `afterAll` need to be ran multiple times.
+> Playwright tries to run as many tests in parallel as possible. These test runs are executed in different processes so `beforeAll` and `afterAll` need to be run multiple times.
 
 > **Note** Even though you might be used to `beforeEach` and `afterEach`, custom fixtures are a handy alternative to structure tests and provide similar functionality across files. More on that later....
 
@@ -115,7 +115,7 @@ test.skip('broken test', async ({ page }) => {
   // ...
 });
 
-// skip test when it's ran in webkit
+// skip test when it's run in webkit
 test('skip in WebKit', async ({ page, browserName }) => {
   test.skip(browserName === 'webkit', 'This feature is not implemented for Mac');
   // ...

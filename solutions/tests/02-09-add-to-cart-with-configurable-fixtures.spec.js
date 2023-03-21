@@ -2,9 +2,7 @@
 const { test, expect } = require("./my-configurable-setup");
 
 test.describe("danube tests", () => {
-  test.use({ isLoggedIn: false });
-
-  test("attach stuff to your test reports", async ({ page }, testInfo) => {
+  test("add to cart", async ({ page }, testInfo) => {
     let productName;
 
     await test.step("Add to cart", async () => {
@@ -20,17 +18,8 @@ test.describe("danube tests", () => {
     await test.step("Cart assertions", async () => {
       const cartContainer = page.locator(".cart");
       await expect(cartContainer.getByText(`1x, ${productName}`)).toBeVisible();
-
-      const screenshot = await page.screenshot();
-      await testInfo.attach("screenshot", {
-        body: screenshot,
-        contentType: "image/png",
-      });
-
-      testInfo.annotations.push({
-        type: "A test with an attached image!",
-        description: "Nothing more to add.",
-      });
     });
+
+    await page.goto('data:text/html,<script>throw new Error("Test")</script>');
   });
 });

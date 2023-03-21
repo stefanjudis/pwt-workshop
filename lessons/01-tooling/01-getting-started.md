@@ -36,7 +36,7 @@ To open last HTML report run:
   npx playwright show-report
 ```
 
-Congratulations! You just ran your first headless PWT tests!
+Congratulations! You've just run your first headless PWT tests!
 
 Familiarize yourself with the generated HTML report.
 

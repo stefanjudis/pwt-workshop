@@ -59,6 +59,8 @@ console.log(parseFloat(largestContentfulPaint))
 
 > **Note** Find more infos about these performance APIs in [our Checkly performance guides](https://www.checklyhq.com/learn/headless/basics-performance/).
 
+## 🏗️ Action time with the good old Danube shop (or your own site)
+
 **Tasks**
 
 - [ ] Gather performance metrics and attach them to your test reports as an annotation.

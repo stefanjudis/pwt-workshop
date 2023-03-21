@@ -3,31 +3,35 @@ const base = require("@playwright/test");
 
 // 1. extend the provided `test` method
 exports.test = base.test.extend({
-  // note that custom fixture can also reuse existing fixtures such as `browser`
-  isLoggedIn: [true, { option: true }],
+  noJsErrors: [false, { option: true }],
+  noJsLogs: [false, { option: true }],
 
-  page: async ({ page, isLoggedIn }, use) => {
-    // this is before the fixture is used (similar to `beforeEach`)
-    console.log("before custom fixture");
+  page: async ({ page, noJsErrors, noJsLogs }, use) => {
+    const consoleLogs = [];
+    page.on("console", async (msg) => {
+      for (const arg of msg.args()) consoleLogs.push(await arg.jsonValue());
+    });
 
-    console.log(isLoggedIn);
+    const pageExceptions = [];
+    page.on("pageerror", ({ name, message }) => {
+      pageExceptions.push({ name, message });
+    });
 
-    if (isLoggedIn) {
-      // the provided object will be accessed from a test case
-      await page.goto("https://danube-web.shop/");
-      await page.getByRole("button", { name: "Log in" }).click();
-      await page.getByPlaceholder("Email").click();
-      await page.getByPlaceholder("Email").fill("user@email.com");
-      await page.getByPlaceholder("Email").press("Tab");
-      await page.getByPlaceholder("Password").fill("supersecure1");
-      await page.getByRole("button", { name: "Sign In" }).click();
-    }
+    await page.goto(process.env.URL || "https://danube-web.shop/");
 
-    // pass fixture to your tests
+    // -------
+
     await use(page);
 
-    // this is after the fixture was used (similar to `afterEach`)
-    console.log("after custom fixture");
+    // -------
+
+    if (noJsLogs) {
+      base.expect(consoleLogs).toHaveLength(0);
+    }
+
+    if (noJsErrors) {
+      base.expect(pageExceptions).toHaveLength(0);
+    }
   },
 });
 

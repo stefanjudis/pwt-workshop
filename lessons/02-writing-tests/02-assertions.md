@@ -125,6 +125,8 @@ Depending on the site you want to test, you might want to tweak [the timeout con
 | Action Timeout     | no timeout | Config: `config.use.actionTimeout` Override: `locator.click({ timeout: 10000 })`            |
 | Navigation timeout | no timeout | Config: `config.use.navigationTimeout` Override: `page.goto('/', { timeout: 30000 })`       |
 
+Tweak and adjust them as you need.
+
 ## Access data from the page
 
 To test if your application works properly you need to query data from the DOM.
