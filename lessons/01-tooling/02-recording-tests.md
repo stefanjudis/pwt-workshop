@@ -26,7 +26,7 @@ Suppose you're a VS Code user and you want to give it a spin, run and record you
 
 ## Result
 
-After you created a test make sure it works by running it.
+After you recorded and created a test, make sure it works by running it.
 
 ```bash
 $ npx playwright test
@@ -35,7 +35,7 @@ $ npx playwright test --headed
 
 > **Note** At this stage Playwright will run three browsers to run your tests. To change this behavior and only run Chromium edit `projects` in your `playwright.config.js`.
 
-After a recorded session you should have the first test available and it should look similar to the following:
+After a recorded session, you should have the first test available and it should look similar to the following:
 
 ```javascript
 // tests/example.spec.js

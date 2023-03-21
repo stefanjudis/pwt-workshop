@@ -5,7 +5,7 @@ To understand what your tests are doing, it's essential to be familiar with Play
 
 ## Debug locally during development
 
-Leverage the command line or the VS Code extension to debug with ease.
+Leverage the command line or [the official VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) to debug with ease.
 
 ### Debugging via the command line
 
@@ -27,7 +27,7 @@ Check all available test options via `npx playwright test --help`.
 
 ![Debugging session in VS Code](../../assets/01-03-debugging-in-vs-code.png)
 
-Run particular tests from within VS Code. It's more powerful than the terminal because it allows you to inspect variables and the surrounding JavaScript scope.
+[Run particular tests from within VS Code](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright). The VS Code extension is more powerful than the terminal because it allows you to inspect variables and the surrounding JavaScript scope.
 
 > **Note** Ensure that you have ticked `Show browser` to see what's happening.
 

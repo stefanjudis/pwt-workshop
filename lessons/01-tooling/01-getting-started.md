@@ -53,7 +53,7 @@ $ npx playwright test --headed
 ```
 
 > **Note**
-> By default Playwright test runs in full fledged parallel mode and kicks off multiple parallel processes to run your tests. This functionality can be tweaked via the `workers` and `fullyParallel` in the `playwright.config.js`, on a test-level or via the command line. Find more information [in the docs](https://playwright.dev/docs/test-parallel) or [in this YouTube video](https://www.youtube.com/watch?v=fG0YePSS5iA&list=PLMZDRUOi3a8NtMq3PUS5iJc2pee38rurc&index=11).
+> By default Playwright test runs in full fledged parallel mode and kicks off multiple parallel processes to run your tests. This functionality can be tweaked via the `workers` and `fullyParallel` property in the `playwright.config.js`, on a test-level or via the command line. Find more information [in the docs](https://playwright.dev/docs/test-parallel) or [in this YouTube video](https://www.youtube.com/watch?v=fG0YePSS5iA&list=PLMZDRUOi3a8NtMq3PUS5iJc2pee38rurc&index=11).
 
 ## `playwright.config.js` — all these options! 🤯
 
