@@ -1,5 +1,5 @@
 # Playwright Test Workshop
-> The new cool kid in testing town.
+> 🔥 The new cool kid in testing town.
 
 ![Playwright page](./assets/pwt-homepage.png)
 
