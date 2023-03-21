@@ -21,7 +21,7 @@ Initializing NPM project (npm init -y)…
 Installing Playwright Test…
 ...
 ```
-> **Warning** Unless you're very (!) fluent in TypeScript please choose JavaScript in the setup guide. If you're using a modern editor you'll still be able to use Intellisense.
+> **Warning** Unless you're very (!) fluent in TypeScript **please choose JavaScript** in the setup guide. If you're using a modern editor you'll still be able to use Intellisense.
 
 Confirm that the installation succeeded by running your first PWT test.
 
@@ -35,9 +35,10 @@ To open last HTML report run:
 
   npx playwright show-report
 ```
-Congratulations! You just ran your first PWT tests!
 
-But you didn't see any browsers popping up. Use the `--headed` flag to see your automation in action.
+Congratulations! You just ran your first headless PWT tests!
+
+Use the `--headed` flag to see your new end-to-end automation in action.
 
 ```
 $ npx playwright test --headed
@@ -52,6 +53,7 @@ Inspect the provided `playwright.config.js` to familiarize yourself with all the
 
 During the workshop we'll look at:
 
+- tooling
 - timeouts
 - traces
 - devices
