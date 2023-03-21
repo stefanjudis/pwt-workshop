@@ -152,7 +152,7 @@ Test steps are a nice way to make your test reports more readable.
 
 ## Test information
 
-Additionally to the handy `test` methods you can also access and enrich the gathered test information using [the `testInfo` fixture](https://playwright.dev/docs/api/class-testinfo#test-info-attach).
+Additionally to the handy `test` methods you can also access and enrich the gathered test information using [the `testInfo`](https://playwright.dev/docs/api/class-testinfo#test-info-attach).
 
 ### Test attachments
 
@@ -200,4 +200,4 @@ Custom annotations can be valuable if you want to reference or link to other mat
 - [ ] Dry up your code and move the initial site navigation (`page.goto()`) into a `beforeEach` hook
 - [ ] Extend the `beforeEach` hook and log into [the Danube webshop](https://danube-web.shop/), too (Email: `user@email.com`, Password: `supersecure1`)
 
-> **Note** If you want to share login state across test runs, [check the Playwright docs](https://playwright.dev/docs/auth).
+> **Note** If you want to share login state across test runs, [check the Playwright docs for common approaches](https://playwright.dev/docs/auth).

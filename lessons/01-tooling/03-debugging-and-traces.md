@@ -83,7 +83,7 @@ But trace files aren't only accessible via the command line. If you have a trace
 
 **Task**
 
-- [ ] Start a debug session to inspect what your tests are doing so far
+- [ ] Start a debug session to inspect what your login test is doing so far
 - [ ] Generate and inspect traces for your generated test run
 
 -----

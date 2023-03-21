@@ -88,6 +88,6 @@ Familialize yourself with all these options to get the most out of your screensh
 **Tasks**
 
 - [ ] Take a full page and element screenshot
-- [ ] Mask DOM elements in your screenshots
+- [ ] Take a product listing screenshot and mask all products
 - [ ] Implement visual snapshot testing in a test case
 

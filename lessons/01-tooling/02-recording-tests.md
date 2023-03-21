@@ -16,6 +16,8 @@ Click around in the opened browser and see how your PWT script develops in the P
 ![Record tests via codegen](../../assets/01-02-recording-with-codegen.png)
 
 Copy and paste into your new test file (`./tests/example.spec.js`).
+
+> **Warning** Watch out to not change your `import` / `require` statements when copying over.
 ## Record tests via the Playwright VS Code extension
 
 Most of Playwright's CLI functionality is also available via [the official VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright).
@@ -26,7 +28,7 @@ Suppose you're a VS Code user and you want to give it a spin, run and record you
 
 ## Result
 
-After you recorded and created a test, make sure it works by running it.
+After you recorded and created a new test, make sure it works by running it.
 
 ```bash
 $ npx playwright test

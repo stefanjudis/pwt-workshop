@@ -13,7 +13,7 @@ page.on('dialog', dialog => {
 });
 ```
 
-## [`page.on('console'`](https://playwright.dev/docs/api/class-page#page-event-console)
+## [`page.on('console')`](https://playwright.dev/docs/api/class-page#page-event-console)
 
 Capture JavaScript `console.log` messages.
 
@@ -45,10 +45,16 @@ await page.goto('data:text/html,<script>throw new Error("Test")</script>');
 
 **Tasks**
 
-- [ ] Overwrite the `page` fixture to catch console logs / page errors and fail tests if there are any.
+- [ ] Overwrite the native `page` fixture to catch console logs / page errors and fail tests if there are any.
 
-> **Note** You can trigger a `pageError` event by navigating to this page. 🫣
+> **Note** You can trigger a `pageError` event or a `console.log` like this. 🫣
 
 ```
+// trigger exception
 await page.goto('data:text/html,<script>throw new Error("Test")</script>');
+
+// log in browser session
+const result = await page.evaluate(() => {
+  console.log(`Hey I'm running in the browser session`);
+});
 ```

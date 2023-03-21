@@ -48,7 +48,7 @@ await browser.close();
 
 **Tasks**
 
-- [ ] Implement a `pageWithoutImages` fixture to speed up your tests and block imags from loading.
+- [ ] Implement a `pageWithoutImages` fixture to speed up your tests and block imags from loading and take a screenshot.
 
 
 > **Note** Find more information on [how to handle network requests in the Playwright docs](https://playwright.dev/docs/network).

@@ -211,5 +211,5 @@ test.describe("danube tests", () => {
 
 **Tasks**
 
-- [ ] Make your tests environment variable aware to define a different base test URL
+- [ ] Use environment variables to log into Danube
 - [ ] Implement a `base` and `strict` project configuration with `noJsErrors` and `noJsLogs` options
