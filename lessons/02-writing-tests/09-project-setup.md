@@ -26,7 +26,7 @@ USERNAME=me PASSWORD=secret npx playwright test
 
 ## More granular configuration with projects
 
-After bootstraping a new Playwright project, the `projects` configuration only included projects for different browsers. But it can do way more!
+After bootstraping a new Playwright project, the `projects` configuration only included projects for different browsers. But it can do way more than configuring browsers!
 
 ```javascript
 // bootstrap projects
@@ -80,7 +80,7 @@ module.exports = defineConfig({
 });
 ```
 
-You can now run all or project specific tests.
+You can run all projects or only project-specific tests.
 
 ```
 $ npx playwright test                       # all tests run (Chrome & Safari)
