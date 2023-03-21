@@ -205,6 +205,8 @@ test.describe("danube tests", () => {
 });
 ```
 
+> **Note** If you want to read more about paramterized tests, [find more info in the Playwright docs](https://playwright.dev/docs/test-parameterize).
+
 ## 🏗️ Action time with the good old Danube shop (or your own site)
 
 **Tasks**
