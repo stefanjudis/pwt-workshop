@@ -149,9 +149,9 @@ module.exports = defineConfig({
 These projects run the same files, but with different configuration.
 
 ```bash
-$ npx playwright test
-$ npx playwright test --project=base
-$ npx playwright test --project=strict
+$ npx playwright test                  # all tests run (base & strick)
+$ npx playwright test --project=base   # only "base" tests run
+$ npx playwright test --project=strict # only "strict" tests run
 ```
 
 How can you define custom project and fixture parameters? Head over to your setup file (`my-setup.js`) where you defined your `loggedInPage` fixture. You can also define custom options and configuration in there.
