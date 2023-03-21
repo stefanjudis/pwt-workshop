@@ -218,8 +218,12 @@ test.describe("danube tests", () => {
 
 ## You made it!
 
-If you have anymore questions, let me know! Here are some more resources:
+If you have anymore questions, let me know!
+
+Here are some more resources:
 
 - [Checkly Playwright tips](https://www.checklyhq.com/learn/headless/)
 - [Checkly weekly Playwright YT tip](https://www.youtube.com/channel/UCJ4R8axyKuPZdJ7lFll3SKQ)
 - [The Playwright community](https://playwright.dev/community/welcome#community-discord)
+
+Have run fun and happy end to end testing!
