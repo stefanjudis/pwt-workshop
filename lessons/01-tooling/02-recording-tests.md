@@ -1,15 +1,17 @@
 # Record your first PWT test
 > Get a headstart with `codegen`.
 
-Playwright provides invaluable "test recording" functionality. It's also known as `codegen`.
+Playwright provides invaluable "test recording" functionality called `codegen`.
 ## Record tests via the `playwright` command
+
+Kick off a new `codegen` session with `npx playwright codegen`.
 
 ```bash
 $ npx playwright codegen https://danube-web.shop/
 $ npx playwright codegen https://your-site.de/
 ```
 
-Click around in the browser that just opened and see how your PWT script develops automatically.
+Click around in the opened browser and see how your PWT script develops in the Playwright inspector automatically.
 
 ![Record tests via codegen](../../assets/01-02-recording-with-codegen.png)
 
