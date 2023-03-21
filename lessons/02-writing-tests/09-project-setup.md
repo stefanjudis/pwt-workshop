@@ -213,3 +213,13 @@ test.describe("danube tests", () => {
 
 - [ ] Use environment variables to log into Danube
 - [ ] Implement a `base` and `strict` project configuration with `noJsErrors` and `noJsLogs` options
+
+-------
+
+## You made it!
+
+If you have anymore questions, let me know! Here are some more resources:
+
+- [Checkly Playwright tips](https://www.checklyhq.com/learn/headless/)
+- [Checkly weekly Playwright YT tip](https://www.youtube.com/channel/UCJ4R8axyKuPZdJ7lFll3SKQ)
+- [The Playwright community](https://playwright.dev/community/welcome#community-discord)
