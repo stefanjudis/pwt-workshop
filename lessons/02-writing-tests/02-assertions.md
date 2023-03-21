@@ -63,7 +63,7 @@ await expect(page.getByText('welcome')).toBeVisible({timeout: 10_000})
 
 ### Soft assertions
 
-[Soft assertions (`expect.soft`)](https://playwright.dev/docs/test-assertions#soft-assertions) are a handy way to fail your test case but still try to run all action steps.
+[Soft assertions (`expect.soft`)](https://playwright.dev/docs/test-assertions#soft-assertions) are a handy way to fail your test case but still try to run the following actions.
 
 ```javascript
 test('has title', async ({ page }) => {
@@ -120,8 +120,8 @@ Depending on the site you want to test, you might want to tweak [the timeout con
 
 | Timeout            | Default    | Description                                                                                 |
 |--------------------|------------|---------------------------------------------------------------------------------------------|
-| Test Timeout       | 30_000ms   | Config: `config.timeout` Override: `test.setTimeout(120_000)`                               |
-| Expect Timeout     | 5_000ms    | Config: `config.expect.timeout` Override: `expect(locator).toBeVisible({ timeout: 10000 })` |
+| Test Timeout       | 30000ms  | Config: `config.timeout` Override: `test.setTimeout(120_000)`                               |
+| Expect Timeout     | 5000ms    | Config: `config.expect.timeout` Override: `expect(locator).toBeVisible({ timeout: 10000 })` |
 | Action Timeout     | no timeout | Config: `config.use.actionTimeout` Override: `locator.click({ timeout: 10000 })`            |
 | Navigation timeout | no timeout | Config: `config.use.navigationTimeout` Override: `page.goto('/', { timeout: 30000 })`       |
 
