@@ -3,7 +3,7 @@
 
 If you finished the previous exercise, you should have a login step in a test case's `beforeEach` hook [similar to this one](../../solutions/tests/02-04-test-runner.spec.js).
 
-But here's a question, how can you reuse this login step for tests living in other test files?
+But how can you reuse this login step for tests living in other test files?
 
 ```javascript
 test.describe("Danube", () => {
