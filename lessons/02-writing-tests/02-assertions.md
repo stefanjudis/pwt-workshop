@@ -1,5 +1,5 @@
 # Check that your site works correctly
-> Avoid waitFor's in your code base.
+> Avoid `waitFor`'s in your code base.
 
 Due to auto-waiting mechanisms, a recorded test case tests many web functionality and critical user flows already. To nail down implementation details and test for data correctness, you need to add assertions.
 ## Generic vs async assertions (web-first assertions)

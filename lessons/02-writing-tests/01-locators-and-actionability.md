@@ -1,7 +1,7 @@
 # Start interacting with websites
 > To the power of user-first DOM selection.
 
-So far, you've only recorded tests. It's time to understand how Playwright Test handles interactions.
+So far, you've only recorded tests. Now it's time to understand how Playwright Test handles interactions.
 
 [Playwright's selection engine is based on locators](https://playwright.dev/docs/locators) that are available on [the `page` fixture](https://playwright.dev/docs/api/class-page).
 
@@ -70,7 +70,7 @@ To narrow down your selection you can always filter and chain locators.
 const product = page.getByRole('listitem').filter({ hasText: 'Product 2' });
 const button = product.getByRole('button', { name: 'Add to cart' });
 
-// Mix of a class locator and a usr-first locator
+// Mix of a class locator and a user-first locator
 const detailContainer = page.locator(".detail-content");
 const productHeading = detailContainer.getByRole("heading", { level: 2 });
 ```

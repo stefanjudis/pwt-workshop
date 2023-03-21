@@ -35,13 +35,13 @@ Check all available test options via `npx playwright test --help`.
 
 ## Debug remote tests running in CI/CD with traces
 
-The debugger is a great way to develop your tests, but what about test runs that failed in a remote environment, in CI/CD or on your co-workers machine? Playwright test provides debugging traces for this case!
+The debugger is a great way to develop your tests, but what about test runs that failed in a remote environment, in CI/CD or on your co-workers machine? Playwright Test provides debugging traces for this case!
 
 ![Debugging a trace](../../assets/01-03-traces.png)
 
-A trace file is a snapshot recording of everything your test did. It includes console messages, network information, HTML snapshots and much more!
+A trace file is a snapshot recording of every action your test performed. It includes console messages, network information, HTML snapshots and much more!
 
-In default configuration Playwright is not collecting traces during local development. But to learn what they're about, change your `playwright.config.js` to always collect a trace for every test.
+In default configuration Playwright is not collecting traces during local development, but to learn what they're about, change your `playwright.config.js` to always collect a trace for every test.
 
 ```javascript
 // playwright.config.js
@@ -59,7 +59,7 @@ Run your tests.
 $ npx playwright test
 ```
 
-This setting will now generate trace `zip` files for every single test available at `test-results/trace.zip`.
+`trace: on` will now generate new trace `zip` files for every single test available at `test-results/`.
 
 > **Note**
 > Trace file generation slows Playwright down. It's recommend to only generate trace files in remote environments and for possibly failed and retried tests (`on-first-retry`).
@@ -75,7 +75,7 @@ $ npx playwright show-trace test-results/example-has-title-webkit/trace.zip
 The trace viewer visualizes all test steps, a timeline and an HTML snapshot of the page. **It's time travel debugging for your end-to-end tests**.
 ### Inspect traces via the online trace viewer
 
-But trace files aren't only accessible via the command line. If you have a trace `zip`, you can also always inspect it at [trace.playwright.dev/](https://trace.playwright.dev/).
+But trace files aren't only accessible via the command line. If you have a trace `zip`, you can also always inspect it at [trace.playwright.dev](https://trace.playwright.dev/).
 
 ------
 
