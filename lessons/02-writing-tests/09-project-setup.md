@@ -9,7 +9,7 @@ There's no one-fits-all solution, but here are some recommendations.
 
 Credentials and URL configuration don't belong into your test code. Luckily, you can always access `process.env` from within your tests.
 
-```
+```javascript
 // example.spec.js
 test(`example test`, async ({ page }) => {
   // ...
