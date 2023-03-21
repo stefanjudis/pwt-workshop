@@ -1,4 +1,7 @@
 # Playwright Test Workshop
+> The new cool kid in testing town.
+
+![Playwright page](./assets/pwt-homepage.png)
 
 `playwright` started as an automation library similar to `puppeteer` but quickly evolved to a full test runner and framework with `@playwright/test`.
 ## The goal
