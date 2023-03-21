@@ -10,6 +10,16 @@ The best way to get started is the default `init` command.
 
 ```bash
 $ npm init playwright@latest
+
+Getting started with writing end-to-end tests with Playwright:
+Initializing project in '.'
+✔ Do you want to use TypeScript or JavaScript? · JavaScript
+✔ Where to put your end-to-end tests? · tests
+✔ Add a GitHub Actions workflow? (y/N) · true
+✔ Install Playwright browsers (can be done manually via 'npx playwright install')? (Y/n) · true
+Initializing NPM project (npm init -y)…
+Installing Playwright Test…
+...
 ```
 > **Warning** Unless you're very (!) fluent in TypeScript please choose JavaScript in the setup guide. If you're using a modern editor you'll still be able to use Intellisense.
 
