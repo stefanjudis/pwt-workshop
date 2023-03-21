@@ -27,9 +27,9 @@ Check all available test options via `npx playwright test --help`.
 
 ![Debugging session in VS Code](../../assets/01-03-debugging-in-vs-code.png)
 
-[Run particular tests from within VS Code](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright). The VS Code extension is more powerful than the terminal because it allows you to inspect variables and the surrounding JavaScript scope.
+[Run particular tests from within VS Code](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright). In some areas, the VS Code extension is more powerful than the terminal because it allows you to inspect variables, set break points and run a single test by clicking a button.
 
-> **Note** Ensure that you have ticked `Show browser` to see what's happening.
+> **Note** If you're running and debugging tests, ensure that you have ticked `Show browser` to see what's happening.
 
 ![Show browser option](../../assets/01-03-show-browser.png)
 
