@@ -116,6 +116,15 @@ await expect(anotherLocator).toBeVisible();
 > **Note**
 > Unless you want to explicitely wait for a particular URL there's little benefit in calling `page.waitForUrl` or similar methods.
 
+Depending on the site you want to test, you might want to tweak [the timeout configuration](https://playwright.dev/docs/test-timeouts). These are Playwright's default timeouts for the mentioned auto-waiting concepts.
+
+| Timeout            | Defautl    | Description                                                                                   |
+|--------------------|------------|-----------------------------------------------------------------------------------------------|
+| Test Timeout       | 30_000ms   | Default: `config.timeout`, Override: `test.setTimeout(120_000)`                               |
+| Expect Timeout     | 5_000ms    | Default: `config.expect.timeout`, Override: `expect(locator).toBeVisible({ timeout: 10000 })` |
+| Action Timeout     | no timeout | Default: `config.use.actionTimeout`, Override: `locator.click({ timeout: 10000 })`            |
+| Navigation timeout | no timeout | Default: `config.use.NavigationTimeout`, Override: `page.goto('/', { timeout: 30000 })`       |
+
 ## Access data from the page
 
 To test if your application works properly you need to query data from the DOM.

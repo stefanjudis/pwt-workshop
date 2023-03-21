@@ -1,7 +1,7 @@
 # Page events
 > Ship high quality without exceptions.
 
-The `page` fixture provides multiple events to monitor what's happening. These can be valuable to confirm alerts, catch log messages or monitor JavaScript excpetions.
+The built-in `page` fixture provides multiple events to monitor what's happening in your end-to-end tests. These events can be valuable to confirm alerts, catch log messages or monitor JavaScript exceptions.
 
 ## [`page.on('dialog')`](https://playwright.dev/docs/api/class-page#page-event-dialog)
 
@@ -45,4 +45,10 @@ await page.goto('data:text/html,<script>throw new Error("Test")</script>');
 
 **Tasks**
 
-- [ ] Overwrite the `page` fixture to catch console logs and page errors and fails a test if there are any.
+- [ ] Overwrite the `page` fixture to catch console logs / page errors and fail tests if there are any.
+
+> **Note** You can trigger a `pageError` event by navigating to this page. 🫣
+
+```
+await page.goto('data:text/html,<script>throw new Error("Test")</script>');
+```

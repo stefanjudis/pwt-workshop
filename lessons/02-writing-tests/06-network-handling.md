@@ -22,10 +22,10 @@ const response = await responsePromise;
 
 ## Mock APIs and cancel requests
 
-Suppose you want to only test your frontend, mock APIs can speed up your test tremendously. The [`page.route()`](https://playwright.dev/docs/api/class-page#page-route) method enables you inject yourself into the network layer and respond with test data quickly.
+Suppose you want to only test your frontend, mocking APIs can speed up your tests tremendously. The [`page.route()`](https://playwright.dev/docs/api/class-page#page-route) method enables you inject yourself into the network layer and respond with test data.
 
 ```javascript
-// Moch an API request
+// Mock an API request
 await page.route('**/api/fetch_data', route => route.fulfill({
   status: 200,
   body: {},
@@ -33,7 +33,7 @@ await page.route('**/api/fetch_data', route => route.fulfill({
 await page.goto('https://example.com');
 ```
 
-Additionally, if you're running many end-to-end test it might be valuable to avoid loading images or block tracking requests. [`page.route()` can do that](https://playwright.dev/docs/api/class-page#page-route), too.
+Additionally, if you're running many end-to-end tests it might be valuable to avoid loading images or block analytics requests. [`page.route()` can do that](https://playwright.dev/docs/api/class-page#page-route), too.
 
 ```javascript
 // Block and abort all image requests
@@ -42,7 +42,7 @@ await page.goto('https://example.com');
 await browser.close();
 ```
 
-> **Note** Network handling has to be defined before the navigations. That's why you should place them in `beforeEach` or a custom fixture.
+> **Note** Network handling has to be defined early in the `page` lifecycle. That's why you should place them in `beforeEach` or a custom fixture.
 
 ## 🏗️ Action time with the good old Danube shop (or your own site)
 

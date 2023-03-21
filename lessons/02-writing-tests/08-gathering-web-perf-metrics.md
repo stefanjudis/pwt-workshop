@@ -1,7 +1,7 @@
 # How to gather web performance metrics
 > Interact with pages directly.
 
-Unfortunately, Playwright doesn't have performance gathering built-in, but you can always leverage native browser APIs if you're interested in webperf.
+Unfortunately, Playwright doesn't have performance gathering built-in yet, but you can always leverage JavaScript and native browser APIs to implement desired functionality.
 
 ## Evaluate custom JavaScript in your page context - `page.evaluate`
 
@@ -12,6 +12,8 @@ const result = await page.evaluate(() => {
   console.log(`Hey I'm running in the browser session`);
 });
 ```
+
+### Evaluate performance metrics
 
 ## Navigation timing
 

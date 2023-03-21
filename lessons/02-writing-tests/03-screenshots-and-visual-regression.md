@@ -1,7 +1,9 @@
 # Screenshots and visual regression testing
 > Taking some pretty pictures on the way.
 
-Even though Playwright provides stellar tools to debug your tests, sometimes you might want to take screenshots while running your tests. [Playwright provides screenshot functionality on the page and locator level](https://playwright.dev/docs/screenshots).
+Even though Playwright provides stellar tools to debug your tests, sometimes you might want to take screenshots while running your headless tests.
+
+[Playwright provides screenshot functionality on the page and locator level](https://playwright.dev/docs/screenshots).
 
 ## Page screenshots
 
@@ -47,7 +49,7 @@ test("get started link", async ({ page, browserName }) => {
 });
 ```
 
-> **Note** The `page`, `browserName` and other test run variables are called test fixtures. [Playwright provides many fixtures](https://playwright.dev/docs/api/class-fixtures) for different use cases and [we'll look at them later](./05-fixtures.md).
+> **Note** The `page`, `browserName` and other test variables are called test fixtures. [Playwright provides many fixtures](https://playwright.dev/docs/api/class-fixtures) for different use cases and [we'll look at them later](./05-fixtures.md).
 
 ## Visual regression snapshots
 
@@ -68,11 +70,11 @@ test("get started link", async ({ page, browserName }) => {
 `toHaveScreenshot()` will create page and component screenshots next to your test files and perform visual regression tests in future runs. Additionally, it automatically captures the browser and OS in use to take the screenshot (`[test-name]-[browser]-[os].png`).💪
 
 > **Note**
-> Playwright provides functionality to handle animations and transitions when taking screenshots. Static screenshots allow animations where as visual regression snapshot disable animations by default.
+> Playwright makes it possible to enable / disabled animations and transitions when taking screenshots. Static screenshots allow animations where as visual regression snapshot disable animations by default.
 
 ## Screenshot configuration
 
-[`screenshot`](https://playwright.dev/docs/api/class-page#page-screenshot) and [`toHaveScreenshot()`](https://playwright.dev/docs/api/class-pageassertions#page-assertions-to-have-screenshot-1) provide multiple configuration options:
+[`screenshot()`](https://playwright.dev/docs/api/class-page#page-screenshot) and [`toHaveScreenshot()`](https://playwright.dev/docs/api/class-pageassertions#page-assertions-to-have-screenshot-1) provide multiple configuration options:
 
 - `mask`
 - `maxDiffRatio`
@@ -85,7 +87,7 @@ Familialize yourself with all these options to get the most out of your screensh
 
 **Tasks**
 
-- [ ] Take a full page and element screenshots
+- [ ] Take a full page and element screenshot
 - [ ] Mask DOM elements in your screenshots
 - [ ] Implement visual snapshot testing in a test case
 

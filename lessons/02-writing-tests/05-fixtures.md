@@ -21,7 +21,9 @@ test.describe("Danube", () => {
 });
 ```
 
-This is where custom fixtures come in. The term "fixtures" might sound complicated but you used built-in fixtures the entire time.
+You could now start restructuring your code, but Playwright provides a built-in mechanism to share and reuse code across test cases and files — fixtures.
+
+The term "fixtures" might sound complicated but you used built-in fixtures the entire time.
 
 > **Note** If you want to learn how fixtures work, [read more about them in the docs](https://playwright.dev/docs/test-fixtures) or [check this YouTube explainer](https://www.youtube.com/watch?v=2O7dyz6XO2s&t=15s).
 
@@ -36,7 +38,7 @@ Playwright uses fixtures to provide you with everything you need to control a br
 | `browser`     | Browsers are shared across tests to optimize resources.                                        |
 | `browserName` | The name of the browser currently running the test. Either  `chromium`, `firefox` or `webkit`. |
 
-Whenever you've defined the `page` oject in your test cases you've been using the provided `page` fixture.
+Whenever you've accessed the `page` oject in your test cases, you've been using the provided `page` fixture.
 
 ```javascript
 // this test case uses the pre-defined `page` and `browserName` fixture
@@ -45,11 +47,13 @@ test("has title", async ({ page, browserName }) => {
 });
 ```
 
-> **Note** Each `page` object is isolated to this particular test run.
+> **Note** Each `page` object is isolated to a particular test run. There are no collisions or shared state.
 
 ## Create a custom fixture
 
-When I comes to Playwright Test there are always multiple ways to do things, but let's assume you want to provide a page object that emulates dark mode. How could you do this with a fixture that's available in all your tests.
+When it comes to Playwright Test, there are always multiple ways of doing things, but let's assume you want to provide a page object that emulates dark mode. How could you do this with a fixture that's available in all your tests?
+
+Extend Playwright's `test` object.
 
 ```javascript
 // example.spec.ts
@@ -61,12 +65,14 @@ const test = base.test.extend({
   darkPage: async ({ browser }, use) => {
     // this is before the fixture is used (similar to `beforeEach`)
     console.log("before custom fixture");
+
     // the provided object will be accessed from a test case
     await use(
       await browser.newPage({
         colorScheme: "dark",
       })
     );
+
     // this is after the fixture was used (similar to `afterEach`)
     console.log("after custom fixture");
   },
@@ -82,7 +88,7 @@ test.describe("A light and dark mode page", () => {
 });
 ```
 
-> **Note** Dark color scheme emulation is configurable in multiple place (project and test configuration). I only took it it as a fixture example.
+> **Note** Dark color scheme emulation is configurable in multiple place (project and test configuration). I only took it as a fixture example.
 
 But now your fixture still lives in the same file as your test. It's time to restructure things.
 
@@ -92,7 +98,7 @@ tests
   |_ example.spec.js
 ```
 
-Create a new `my-setup.js` file and export your extended `test` object and also `expect`.
+Create a new `my-setup.js` file and export your extended `test` and the `expect` object.
 
 ```javascript
 const base = require('@playwright/test');
@@ -106,9 +112,10 @@ exports.test = base.test.extend({
 exports.expect = base.expect;
 ```
 
-And import `test` and `expect` from your spec files.
+And import your custom `test` and `expect` in your spec files.
 
 ```javascript
+// Require the extended `test` from your setup
 const { test, expect } = require('./my-setup');
 
 // all your test logic
@@ -126,6 +133,6 @@ And you made it! You now have a `my-setup` file that can be reused across tests 
 
 **Tasks**
 
-- [ ] Restructure your existing tests to implement a `loggedInPage` fixture that is automatically logged in and logs itself out after it was used in a test.
+- [ ] Restructure your existing tests to implement a `loggedInPage` fixture that logs in a `page` object and logs itself out after it was used in a test.
 
 > **Note** If you want to share login state across test runs, [check the Playwright docs](https://playwright.dev/docs/auth).

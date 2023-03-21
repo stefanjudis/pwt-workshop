@@ -1,11 +1,11 @@
 # The Playwright Test runner
 > Structure and configure your tests.
 
-So far, we've only looked at the internals of a test runs. But how can you control when and how tests are run?
+So far, we've only looked at the internals of a test run. But how can you control when and how your tests are run?
 
 ## `test` / `test.describe`
 
-Suppose your test files grow you can always introduce a clean grouping using `test.describe`.
+Suppose your test files grow, you can always introduce a clean grouping using `test.describe`.
 
 ```javascript
 const { test, expect } = require('@playwright/test');
@@ -23,7 +23,7 @@ test.describe("playwright", () => {
 
 ## `beforeAll`, `beforeEach`, `afterEach`, `afterAll`
 
-Playwright provides the common test runner methods your might be already familiar with.
+Playwright provides common test runner methods your might be already familiar with.
 
 ```javascript
 const { test, expect } = require('@playwright/test');
@@ -49,25 +49,27 @@ test.describe("playwright", () => {
     console.log("After each");
   });
 
-  test.afterAll(async ({ page }) => {
+  test.afterAll(async () => {
     console.log("After tests");
   });
 });
 
 ```
 
-> **Warning** Suppose you see multiple `beforeAll` and `afterAll` logs, what's happening?
+Fixtures such as `page` are isolated per test but keep their state in life cycle hooks such as `beforeEach` and `afterEach`. For example, you can log into a website in a `beforeEach` hook and all following tests will access encapsulated but logged in `page` objects.
+
+> **Warning** Suppose you see multiple `beforeAll` and `afterAll` logs in your terminal, what's happening?
 > Playwright tries to run as many tests in parallel as possible. These test runs are executed in different processes so `beforeAll` and `afterAll` need to be ran multiple times.
 
 > **Note** Even though you might be used to `beforeEach` and `afterEach`, custom fixtures are a handy alternative to structure tests and provide similar functionality across files. More on that later....
 
 ## Individual test configuration
 
-When Playwright runs all your tests there are multiple ways to configure single test runs.
+When Playwright runs all your tests, there are multiple ways to configure single test runs.
 
 ### [`test.only`](https://playwright.dev/docs/api/class-test#test-only)
 
-If you're focusing on a single test you can task the test runner to only run a single test.
+If you're focusing on a single test during development you can task the test runner to only run a single test.
 
 ```javascript
 test.only('focus this test', async ({ page }) => {
@@ -105,7 +107,7 @@ test("has title", async ({ page, browserName }) => {
 
 ### [`test.skip`](https://playwright.dev/docs/api/class-test#test-skip-2)
 
-Skip tests.
+Skip a test.
 
 ```javascript
 // skip test entirely
@@ -122,13 +124,14 @@ test('skip in WebKit', async ({ page, browserName }) => {
 
 ## Test steps
 
-For longer tests, it might be valuable to add a third level of grouping - [test steps](https://playwright.dev/docs/api/class-test#test-step).
+For longer and more complex tests, it might be valuable to add a third level of grouping - groups, tests and [test steps](https://playwright.dev/docs/api/class-test#test-step).
 
 ```javascript
 test.describe("danube tests", () => {
   test("attach stuff to your test reports", async ({ page }, testInfo) => {
     let productName;
 
+    // add a test step for additional grouping in your HTML report
     test.step("Add to cart", async () => {
       await page.goto("https://danube-web.shop/");
       await page.getByText("Haben oder haben").click();
@@ -163,7 +166,7 @@ test('basic test', async ({ page }, testInfo) => {
 });
 ```
 
-> **Note** Test attachments can be very handy when you tests are dealing with up and downloads.
+> **Note** Test attachments can be very valuable when you tests are dealing with file up and downloads.
 
 ### Custom annotations
 
@@ -183,7 +186,7 @@ test("is logged in", async ({ loggedInPage }, testInfo) => {
 });
 ```
 
-This can be valuable if you want to reference or link other materials.
+Custom annotations can be valuable if you want to reference or link to other materials.
 
 ![A custom annotation](../../assets/02-04-custom-annotation.png)
 
@@ -194,7 +197,7 @@ This can be valuable if you want to reference or link other materials.
 - [ ] Restructure your existing tests to use `test.describe`
 - [ ] Attach a screenshot to your HTML test report using `test.info().attach()`
 - [ ] Add additional grouping logic into your tests using `test.step()`
-- [ ] Dry up your code and move the initial site navigation (`page.goto`) into a `beforeEach` hook
-- [ ] Extend the `beforeEach` and log into [the Danube webshop](https://danube-web.shop/), too (Email: `user@email.com`, Password: `supersecure1`)
+- [ ] Dry up your code and move the initial site navigation (`page.goto()`) into a `beforeEach` hook
+- [ ] Extend the `beforeEach` hook and log into [the Danube webshop](https://danube-web.shop/), too (Email: `user@email.com`, Password: `supersecure1`)
 
 > **Note** If you want to share login state across test runs, [check the Playwright docs](https://playwright.dev/docs/auth).
