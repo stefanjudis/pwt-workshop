@@ -1,7 +1,7 @@
 # Start interacting with websites
 > To the power of user-first DOM selection.
 
-So far, you've only recorded tests. It's time to understand how Playwright test handles interactions.
+So far, you've only recorded tests. It's time to understand how Playwright Test handles interactions.
 
 [Playwright's selection engine is based on locators](https://playwright.dev/docs/locators) that are available on [the `page` fixture](https://playwright.dev/docs/api/class-page).
 
@@ -26,7 +26,7 @@ If these user-first locators don't fit your need, [check other locators](https:/
 
 ### Important locator characteristics
 
-Playwright Test's locators include some core functionality you must be aware of.
+Playwright Test's locators include core functionality you must be aware of.
 
 #### Locators are strict
 
@@ -52,9 +52,9 @@ Every time a locator is used for an action, an up-to-date DOM element is located
 // the `locator` is only evaluated when it's used
 const locator = page.getByRole('button', { name: 'Sign in' })
 
-// evaluate the locator
+// evaluate DOM elements matching the locator
 await locator.hover();
-// evaluate the locator
+// evaluate DOM elements matching the locator
 await locator.click();
 ```
 
@@ -69,6 +69,10 @@ To narrow down your selection you can always filter and chain locators.
 // The `button` locator reuses the `product` locator
 const product = page.getByRole('listitem').filter({ hasText: 'Product 2' });
 const button = product.getByRole('button', { name: 'Add to cart' });
+
+// Mix of a class locator and a usr-first locator
+const detailContainer = page.locator(".detail-content");
+const productHeading = detailContainer.getByRole("heading", { level: 2 });
 ```
 
 ------
@@ -90,7 +94,7 @@ const button = product.getByRole('button', { name: 'Add to cart' });
 > **Note**
 > To find the best action, `codegen` is an invaluable tool here, too!
 
-The most important concept when it comes to PWT is that actions [auto-wait](https://playwright.dev/docs/actionability). A **`click` isn't only a `click`**.
+The most important concept when it comes to PWT is that actions [auto-wait](https://playwright.dev/docs/actionability). A **`click` isn't only a `click`**. Actions in Playwright tests are asynchronous operations — why?
 
 `await locator.click()` waits until the element is [actionable](https://playwright.dev/docs/actionability):
 
@@ -119,14 +123,16 @@ await page.getByLabel('User Name').fill('John Doe');
 ![Actionability log](../../assets/02-01-actionability-log.png)
 
 > **Note**
-> These auto-waiting concepts allow you to drop many manual `waitFor` statements because you don't have to check if an element exists or is visible. Actions will wait/retry until an element is "ready for action" or throw a timeout error in your test.
+> These auto-waiting concepts allow you to drop many manual `waitFor` statements because you don't have to check if an element exists or is visible. Actions will wait / retry until an element is "ready for action" or throw a timeout error in your test.
 
 ```javascript
 // 👎
+// Checking if an element is visible before interacting with it
 await expect(page.getByText('Login')).toBeVisible();
 await page.getByText('Login').click();
 
 // 👍
+// Just interact with it and let Playwright figure out the rest
 await page.getByText('Login').click();
 ```
 

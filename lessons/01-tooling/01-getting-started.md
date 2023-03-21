@@ -38,6 +38,14 @@ To open last HTML report run:
 
 Congratulations! You just ran your first headless PWT tests!
 
+Familiarize yourself with the generated HTML report.
+
+```
+$ npx playwright show-report
+```
+
+![HTML report](../../assets/01-01-html-report.png)
+
 Use the `--headed` flag to see your new end-to-end automation in action.
 
 ```

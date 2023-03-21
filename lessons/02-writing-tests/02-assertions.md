@@ -1,5 +1,5 @@
 # Check that your site works correctly
-> Avoid waitFor's from your code base.
+> Avoid waitFor's in your code base.
 
 Due to auto-waiting mechanisms, a recorded test case tests many web functionality and critical user flows already. To nail down implementation details and test for data correctness, you need to add assertions.
 ## Generic vs async assertions (web-first assertions)
@@ -19,7 +19,9 @@ const { test, expect } = require('@playwright/test');
 expect(number).toBe(2)
 ```
 
-To test web functionality, async assertions come as a handy alternative. Playwright's web-first assertions are tailored to the web and asynchronous. **They're based on the auto-waiting principles for actions and wait / retry until a condition is met or the time out is reached**.
+To test web functionality, though, async assertions come as a handy alternative.
+
+Playwright's asynchronous web-first assertions are tailored to the web. **They're based on the same auto-waiting principles you already know about and wait / retry until a condition is met or the time out is reached**.
 
 ```javascript
 // an asynchronous web-first assertion
@@ -61,7 +63,7 @@ await expect(page.getByText('welcome')).toBeVisible({timeout: 10_000})
 
 ### Soft assertions
 
-[Soft assertions (`expect.soft`)](https://playwright.dev/docs/test-assertions#soft-assertions) are a handy way to fail your test case but don't stop it.
+[Soft assertions (`expect.soft`)](https://playwright.dev/docs/test-assertions#soft-assertions) are a handy way to fail your test case but still try to run all action steps.
 
 ```javascript
 test('has title', async ({ page }) => {
@@ -81,7 +83,7 @@ Soft assertion are particularly helpful when running longer tests.
 
 ### Assertions can be negated
 
-Assertions also provide a quick way to flip their meaning around.
+Assertions also provide a quick way to flip around their meaning.
 
 ```javascript
 await expect(locator).toBeVisible();
@@ -90,7 +92,7 @@ await expect(locator).not.toBeVisible();
 
 ### Custom assertion messages
 
-To make your assertions more readable you can also define a custom message.
+To make your assertions more readable in your test reports. You can also define a custom message.
 
 ```javascript
 await expect.soft(page, 'should have an awesome title').toHaveTitle('wrong title');
@@ -122,7 +124,7 @@ Let's say you add an item to a cart and want to check that the correct item is i
 
 ```javascript
 const productHeading = page.getByRole("heading", { level: 2 });
-const productName = await productHeading.first().allInnerTexts();
+const productName = await productHeading.first().innerText();
 ```
 
 And assert that the product is in cart on the next page.

@@ -18,7 +18,7 @@ Click around in the opened browser and see how your PWT script develops in the P
 Copy and paste into your new test file (`./tests/example.spec.js`).
 ## Record tests via the Playwright VS Code extension
 
-Most of the CLI functionality is also available via [the official VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright).
+Most of Playwright's CLI functionality is also available via [the official VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright).
 
 Suppose you're a VS Code user and you want to give it a spin, run and record your tests from within VS Code.
 
@@ -35,7 +35,7 @@ $ npx playwright test --headed
 
 > **Note** At this stage Playwright will run three browsers to run your tests. To change this behavior and only run Chromium edit `projects` in your `playwright.config.js`.
 
-After a recorded session you should have the first test available and it should look as follows.
+After a recorded session you should have the first test available and it should look similar to the following:
 
 ```javascript
 // tests/example.spec.js
