@@ -1,9 +1,13 @@
 # Playwright Test Workshop
 
-Playwrigh started as an automation library but evolved to a full test runner and framework.
+`playwright` started as an automation library similar to `puppeteer` but quickly evolved to a full test runner and framework with `@playwright/test`.
 ## The goal
 
-This workshop will teach you Playwright Test essentials. Examples will use a demo shop to explain concepts. To follow along with the example, use a demo shop example (`https://danube-web.shop/`), **but feel free to test and implement functionality for your production sites.**
+This workshop teaches you Playwright Test (PWT) essentials to get started in the world of end-to-end testing.
+
+Supportive materials and tasks are all included in the `/lessons` directory. Lessons build on top of each other and are hands-on — **work through them at your own pace**. I'll answer questions on the way and might do the exercises, too.
+
+To follow along, all the examples will test [an online example webshop called "Danube"](https://danube-web.shop/). But feel free to test and implement functionality on other websites. **Start testing your local development or production sites!**
 
 ## Action plan
 
