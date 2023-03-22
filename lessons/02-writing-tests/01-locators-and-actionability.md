@@ -22,7 +22,9 @@ The Playwright team highly encourages the usage of "user-first" locators to be a
 > **Note**
 > If you follow the user-first approach, using `codegen` to create and tweak locators leads to results the quickest.
 
-If these user-first locators don't fit your need, [check other locators](https://playwright.dev/docs/other-locators).
+If these user-first locators don't fit your need, CSS selector based locators work (`page.locator('.cta')`), too.
+
+[Check other locators](https://playwright.dev/docs/other-locators).
 
 ### Important locator characteristics
 
