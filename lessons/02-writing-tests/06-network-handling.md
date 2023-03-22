@@ -49,6 +49,7 @@ await browser.close();
 **Tasks**
 
 - [ ] Implement a `pageWithoutImages` fixture to speed up your tests and block imags from loading and take a screenshot.
+- [ ] Implement request mocking and put your name into the store by changing the `/api/books` request.
 
 
 > **Note** Find more information on [how to handle network requests in the Playwright docs](https://playwright.dev/docs/network).
